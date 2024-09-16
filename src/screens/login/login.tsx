@@ -1,15 +1,17 @@
-import { View, Text, Image , Pressable, TextInput, TouchableOpacity } from 'react-native'
+import { View, Text, Image, Pressable, TextInput, TouchableOpacity } from 'react-native'
 import React, { useState } from 'react'
 import { SafeAreaView } from "react-native-safe-area-context";
 import COLORS from '../../utils/constants/colors';
 import { Ionicons } from "@expo/vector-icons";
 import Checkbox from "expo-checkbox"
 import Button from '../../components/Button';
+import { RootState, useAppDispatch, useAppSelector } from '../../redux/store';
+import { changeName } from '../../redux/reducers/authSlice';
 
 const Login = ({ navigation }: { navigation: any }) => {
     const [isPasswordShown, setIsPasswordShown] = useState(false);
     const [isChecked, setIsChecked] = useState(false);
-    
+
     return (
         <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.white }}>
             <View style={{ flex: 1, marginHorizontal: 22 }}>
@@ -122,7 +124,7 @@ const Login = ({ navigation }: { navigation: any }) => {
                     style={{
                         marginTop: 18,
                         marginBottom: 4,
-                    }}
+                    }}                    
                 />
 
                 <View style={{ flexDirection: 'row', alignItems: 'center', marginVertical: 20 }}>
