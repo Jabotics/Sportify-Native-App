@@ -1,12 +1,18 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { useDispatch, TypedUseSelectorHook, useSelector } from 'react-redux';
-import authReducer from './reducers/authSlice';
+import authReducer from './services/auth/authSlice';
+import { authApi } from './services/auth/authApi';
 
 // Configure the store
 export const store = configureStore({
     reducer: {
-        auth: authReducer
+        auth: authReducer,
+        [authApi.reducerPath]: authApi.reducer
     },
+    middleware: (getDefaultMiddleware) =>
+        getDefaultMiddleware({
+            serializableCheck: false,
+        }).concat(authApi.middleware),
 });
 
 // Infer the `RootState` and `AppDispatch` types from the store itself
