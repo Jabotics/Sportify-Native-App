@@ -51,8 +51,9 @@ export const authSlice = createSlice({
         .addMatcher(authApi.endpoints.login.matchRejected, (state)=>{
             state.status = 'fail';
         })
-        .addMatcher(authApi.endpoints.validateOtp.matchFulfilled, (state, action: PayloadAction<ValidateOTPData>)=>{
-            state.user = action.payload.data.payload;
+        .addMatcher(authApi.endpoints.validateOtp.matchFulfilled, (state, action: PayloadAction<any>)=>{
+            console.log(action.payload.Response.data.payload);
+            state.user = action.payload.Response.data.payload;
             state.showLoginPage = true;
         })
     },

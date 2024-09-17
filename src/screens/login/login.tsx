@@ -1,53 +1,38 @@
-import React, { useEffect, useRef, useState } from 'react'
 import Button from '../../components/Button';
 import COLORS from '../../utils/constants/colors';
-import { View, Text, TextInput, TouchableOpacity } from 'react-native'
+import ValidateOTP from './components/ValidateOTP';
+import { View, Text, TextInput } from 'react-native'
+import React, { useEffect, useRef, useState } from 'react'
 import { SafeAreaView } from "react-native-safe-area-context";
-import { useLoginMutation, useValidateOtpMutation } from '../../redux/services/auth/authApi';
 import { RootState, useAppSelector } from '../../redux/store';
+import { useLoginMutation, useValidateOtpMutation } from '../../redux/services/auth/authApi';
 
 const Login = ({ navigation }: { navigation: any }) => {
-    const [mobile, setMobile] = useState('');    
+    const [mobile, setMobile] = useState('');
     const [otp, setOtp] = useState<string[]>(['', '', '', '']);
-    const inputRefs = useRef<(TextInput | null)[]>([]);
     const [loginAPI] = useLoginMutation();
-    const [validateOTPApi, {isSuccess}] = useValidateOtpMutation();
-    const showLoginForm = useAppSelector((state: RootState)=> state.auth.showLoginPage);
-    const user = useAppSelector((state: RootState)=> state.auth.user);
-    const otpData = useAppSelector((state: RootState)=> state.auth.resData);
-
-    const handleInputChange = (text: string, index: number) => {
-        const newOtp = [...otp];
-        newOtp[index] = text;
-        setOtp(newOtp);
-
-        // Move to the next input when the current input is filled
-        if (text && index < otp.length - 1) {
-            inputRefs.current[index + 1]?.focus();
-          }
-    };
+    const [validateOTPApi, { isSuccess }] = useValidateOtpMutation();
+    const showLoginForm = useAppSelector((state: RootState) => state.auth.showLoginPage);
+    const user = useAppSelector((state: RootState) => state.auth.user);
+    const otpData = useAppSelector((state: RootState) => state.auth.resData);
 
     const sendOTP = () => {
-        loginAPI({mobile: mobile});
+        loginAPI({ mobile: mobile });
     }
 
-    const validateOTP = () => {        
-        validateOTPApi({id: otpData?.data.id, otp: otp.join('')});
-    }   
-
-    useEffect(()=>{                
-        if(isSuccess) {
+    useEffect(() => {
+        if (isSuccess) {
             navigation.navigate('Home');
             setMobile('');
             setOtp(['', '', '', '']);
         }
-    },[isSuccess])
+    }, [isSuccess]);
 
-    useEffect(()=>{
-        if('mobile' in user && typeof user.mobile == 'string' && user.mobile.length != 0) {
+    useEffect(() => {
+        if ('mobile' in user && typeof user.mobile == 'string' && user.mobile.length != 0) {
             navigation.navigate('Home');
         }
-    }, [user])
+    }, [user]);
 
     return (
         <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.white }}>
@@ -112,29 +97,7 @@ const Login = ({ navigation }: { navigation: any }) => {
                             />
                         </>
                         : <>
-                            <View className="flex-1 justify-center items-center p-4">
-                                <Text className="text-2xl font-bold mb-4">Enter OTP</Text>
-                                <View className="flex-row space-x-4 mb-4">
-                                    {otp.map((value, index) => (
-                                        <TextInput
-                                            key={index}
-                                            id={`otp-${index}`}
-                                            ref={(ref) => (inputRefs.current[index] = ref)}
-                                            className="border border-gray-300 rounded p-2 w-12 text-center text-xl"                                            
-                                            keyboardType="numeric"
-                                            maxLength={1}
-                                            value={value}
-                                            onChangeText={(text) => handleInputChange(text, index)}
-                                        />
-                                    ))}
-                                </View>
-                                <TouchableOpacity
-                                    className="bg-teal-600 rounded p-2 w-full"
-                                    onPress={validateOTP}
-                                >
-                                    <Text className="text-white text-center text-lg">Submit</Text>
-                                </TouchableOpacity>
-                            </View>
+                            <ValidateOTP />
                         </>
                 }
             </View>
