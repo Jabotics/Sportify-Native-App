@@ -3,5 +3,8 @@ export const APIEndPoints = {
 
     //Login API
     login: '/api/customer-login',
-    validate_otp: '/api/validate-otp'
+    validate_otp: '/api/validate-otp',
+
+    //Ground API
+    get_grounds: '/api/grounds'
 }

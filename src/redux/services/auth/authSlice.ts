@@ -11,14 +11,6 @@ interface OTPData {
     }
 }
 
-interface ValidateOTPData {
-    status: string;
-    message: string;
-    data: {
-        payload: {}
-    }
-}
-
 export interface AuthState {    
     status: 'idle' | 'pending' |'success' | 'fail';
     showLoginPage: boolean; 

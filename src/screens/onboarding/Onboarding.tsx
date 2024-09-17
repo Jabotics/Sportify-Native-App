@@ -8,24 +8,29 @@ const NextButton = () => {
     )
 }
 
-const DoneButton = ({...props}) => {
-    return (
-        <TouchableOpacity {...props} className="bg-blue-800 mr-2 p-2 flex justify-center items-center rounded-xl">
-            <View>
-                <Text className="text-white">Get Started</Text>
-            </View>
-        </TouchableOpacity>
-    )
-}
+// const DoneButton = ({...props}) => {
+//     return (
+//         <TouchableOpacity {...props} className="bg-blue-800 mr-2 p-2 flex justify-center items-center rounded-xl">
+//             <View>
+//                 <Text className="text-white">Get Started</Text>
+//             </View>
+//         </TouchableOpacity>
+//     )
+// }
 
 const OnboardingScreen = ({ navigation }: { navigation: any }) => {
     return (
         <Onboarding
             onSkip={() => navigation.navigate('Welcome')}
-            onDone={() => navigation.navigate('Login')}
+            onDone={() => navigation.navigate('GroundList')}
             nextLabel={<NextButton />}
-            DoneButtonComponent={DoneButton}
+            // DoneButtonComponent={DoneButton}
             bottomBarHighlight={false}
+            bottomBarHeight={90}
+            controlStatusBar={false}
+            DotComponent={({selected}) => (
+                <View className={`h-2 rounded mx-1 ${selected ? 'w-5' : 'w-2'} ${selected ? 'bg-[#000]' : 'bg-[#e0e0e0]'}`}/>
+            )}
             pages={[
                 {
                     backgroundColor: '#a6e4d0',
@@ -40,7 +45,7 @@ const OnboardingScreen = ({ navigation }: { navigation: any }) => {
                     subtitle: 'Done with React Native Onboarding Swiper',
                 },
                 {
-                    backgroundColor: '#fff',
+                    backgroundColor: '#D7F4F5',
                     image: <Image source={require('../../assets/images/onboarding-img3.png')} />,
                     title: 'Onboarding',
                     subtitle: 'Done with React Native Onboarding Swiper',
