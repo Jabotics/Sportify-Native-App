@@ -10,6 +10,7 @@ import {
 } from "./src/screens";
 import { store } from './src/redux/store';
 import { Provider } from "react-redux";
+import Main from "./src/screens/main/Main";
 
 const Stack = createNativeStackNavigator();
 export default function App() {
@@ -21,7 +22,7 @@ export default function App() {
           <Stack.Screen name="GroundList" component={GroundList} options={{ headerShown: false }} />
           <Stack.Screen name="Welcome" component={Welcome} options={{ headerShown: false }} />
           <Stack.Screen name="Login" component={Login} options={{ headerShown: false }} />
-          <Stack.Screen name="Home" component={Home} options={{ headerShown: false }} />
+          <Stack.Screen name="Main" component={Main} options={{ headerShown: false }} />
         </Stack.Navigator>
       </Provider>
     </NavigationContainer>

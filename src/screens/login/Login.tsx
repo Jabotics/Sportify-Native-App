@@ -3,7 +3,7 @@ import { Image, Text, TextInput, TouchableOpacity, View, ScrollView, KeyboardAvo
 import Icon from 'react-native-vector-icons/AntDesign';
 import ValidateOTP from './components/ValidateOTP';
 
-const Login = () => {
+const Login = ({navigation}: {navigation: any}) => {
     const [showLoginForm, setShowLoginForm] = useState(true);
 
     return (
@@ -36,7 +36,7 @@ const Login = () => {
                                     </View>
                                 </View>
                                 <View className='mt-16'>
-                                    <TouchableOpacity className='bg-primary p-3 mx-10 rounded-md'>
+                                    <TouchableOpacity className='bg-primary p-3 mx-10 rounded-md' onPress={()=> navigation.navigate('Main')}>
                                         <Text className='text-center text-white text-base'>Log in</Text>
                                     </TouchableOpacity>
                                 </View>
