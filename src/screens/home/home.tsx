@@ -8,6 +8,8 @@ import Icon from 'react-native-vector-icons/AntDesign';
 import AllGrounds from './components/AllGrounds';
 import AllSports from './components/AllSports';
 import Review from './components/Review';
+import NewsLetter from './components/NewsLetter';
+import Footer from './components/Footer';
 
 const Home = () => {
   return (
@@ -21,7 +23,7 @@ const Home = () => {
       </View>
 
       {/* Scrollable components */}
-      <ScrollView contentContainerStyle={{ paddingBottom: 20 }}>
+      <ScrollView >
         {/* Top Ground Component */}
         <View>
           <TopGround />
@@ -40,6 +42,16 @@ const Home = () => {
         {/* Review Component */}
         <View className='mt-10'>
           <Review />
+        </View>
+
+        {/* NewsLetter Component */}
+        <View className='mt-10'>
+          <NewsLetter />
+        </View>
+
+        {/* Footer Component */}
+        <View className='mt-10'>
+          <Footer />
         </View>
       </ScrollView>
     </View>

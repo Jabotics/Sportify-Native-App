@@ -39,7 +39,7 @@ const Review = () => {
             </View>
 
             {/* Right Side */}
-            <View className='flex-1 items-center justify-center'>
+            <View className='flex-1 items-center justify-center mr-2'>
                 <View>
                     <Text className='text-primary text-[20px] font-bold text-center'>Submit Your <Text className='underline'>Valuable</Text> Review</Text>
                 </View>
