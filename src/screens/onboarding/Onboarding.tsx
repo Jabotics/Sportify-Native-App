@@ -8,23 +8,12 @@ const NextButton = () => {
     )
 }
 
-// const DoneButton = ({...props}) => {
-//     return (
-//         <TouchableOpacity {...props} className="bg-blue-800 mr-2 p-2 flex justify-center items-center rounded-xl">
-//             <View>
-//                 <Text className="text-white">Get Started</Text>
-//             </View>
-//         </TouchableOpacity>
-//     )
-// }
-
 const OnboardingScreen = ({ navigation }: { navigation: any }) => {
     return (
         <Onboarding
-            onSkip={() => navigation.navigate('Welcome')}
-            onDone={() => navigation.navigate('GroundList')}
-            nextLabel={<NextButton />}
-            // DoneButtonComponent={DoneButton}
+            onSkip={() => navigation.navigate('Main')}
+            onDone={() => navigation.navigate('Main')}
+            nextLabel={<NextButton />}            
             bottomBarHighlight={false}
             bottomBarHeight={90}
             controlStatusBar={false}

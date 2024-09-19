@@ -5,15 +5,24 @@ import {
   Welcome,
   Login,
   GroundList,
-  Onboarding,
-  Home
+  Onboarding,  
 } from "./src/screens";
 import { store } from './src/redux/store';
 import { Provider } from "react-redux";
 import Main from "./src/screens/main/Main";
 import EditProfile from "./src/screens/profile/EditProfile";
+import { NativeStackNavigationProp } from "@react-navigation/native-stack";
+
+export type RootStackParamList = {
+  Home: undefined;
+  Login: undefined;
+  GroundList: undefined;
+}
+
+export type NavigationProp = NativeStackNavigationProp<RootStackParamList>;
 
 const Stack = createNativeStackNavigator();
+
 export default function App() {
   return (
     <NavigationContainer>

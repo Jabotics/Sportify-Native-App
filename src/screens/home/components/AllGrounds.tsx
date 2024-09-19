@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 import { ScrollView, Text, TouchableOpacity, View } from 'react-native'
 import Icon from 'react-native-vector-icons/AntDesign';
 import GroundCard from '../../../components/GroundCard';
+import { useNavigation } from '@react-navigation/native';
+import { NavigationProp } from '../../../../App';
 
 const TabButtons = () => {
     const [activeTab, setActiveTab] = useState('bfu');
@@ -40,6 +42,7 @@ const TabButtons = () => {
 
 let arr = [1, 2, 3, 4]
 const AllGrounds = () => {
+    const navigation = useNavigation<NavigationProp>();
     return (
         <View>
             <View className='flex flex-row justify-between mt-5 mx-5'>
@@ -48,7 +51,9 @@ const AllGrounds = () => {
                     <Text className='text-gray-400'>4 items</Text>
                 </View>
                 <View>
-                    <Icon name='rightcircle' size={30} />
+                    <TouchableOpacity onPress={()=> navigation.navigate("GroundList")}>
+                        <Icon name='rightcircle' size={30} />
+                    </TouchableOpacity>
                 </View>
             </View>
             <View>
