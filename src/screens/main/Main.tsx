@@ -20,9 +20,9 @@ const icons: Record<IconName, any> = {
 }
 
 const TabIcon = ({ name }: { name: IconName }) => {
-    let w = 5;
-    let h = 5;
-    (name === 'message' || name === 'notification') && (w = 6, h = 6)
+    let w = 6;
+    let h = 6;
+    // (name === 'message' || name === 'notification') && (w = 7, h = 7)
     return <Image source={icons[name]} className={`w-${w} h-${h}`} />
 }
 
@@ -50,7 +50,8 @@ const Main = () => {
                 }
                 return <TabIcon name={iconName} />;
             },
-            tabBarShowLabel: false
+            tabBarShowLabel: false,
+            headerShown: false
         })}>
             <Tab.Screen name='Home' component={Home} />
             <Tab.Screen name='Play' component={Play} />
