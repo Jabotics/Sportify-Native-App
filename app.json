@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "D3-Arena-App",
-    "slug": "D3-Arena-App",
+    "name": "Native-App",
+    "slug": "Native-App",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
