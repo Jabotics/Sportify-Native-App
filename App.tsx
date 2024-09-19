@@ -11,6 +11,7 @@ import {
 import { store } from './src/redux/store';
 import { Provider } from "react-redux";
 import Main from "./src/screens/main/Main";
+import EditProfile from "./src/screens/profile/EditProfile";
 
 const Stack = createNativeStackNavigator();
 export default function App() {
@@ -22,7 +23,8 @@ export default function App() {
           <Stack.Screen name="GroundList" component={GroundList} options={{ headerShown: false }} />
           <Stack.Screen name="Welcome" component={Welcome} options={{ headerShown: false }} />
           <Stack.Screen name="Login" component={Login} options={{ headerShown: false }} />
-          <Stack.Screen name="Main" component={Main} options={{ headerShown: false }} />
+          <Stack.Screen name="Main" component={Main} options={{ headerShown: false }} />          
+          <Stack.Screen name="EditProfile" component={EditProfile} options={{ headerShown: false }} />          
         </Stack.Navigator>
       </Provider>
     </NavigationContainer>
