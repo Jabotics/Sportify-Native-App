@@ -1,10 +1,11 @@
 import { View, Text, Pressable } from "react-native";
 import React from "react";
 import { LinearGradient } from "expo-linear-gradient";
-import COLORS from "@/utils/constants/colors";
 import Button from "@/components/shared/button";
+import { NavigationProp } from "@react-navigation/native";
+import COLORS from "@/styles/abstracts/colors";
 
-export default function Welcome({ navigation }: { navigation: any }) {
+export default function Welcome({ navigation }: { navigation: NavigationProp<any> }) {
   return (
     <LinearGradient
       style={{

@@ -1,6 +1,7 @@
 import { Button, Image, Text, TouchableOpacity, View } from "react-native";
 import Onboarding from "react-native-onboarding-swiper";
 import Icon from "react-native-vector-icons/AntDesign";
+import { NavigationProp } from '@react-navigation/native';
 
 const NextButton = () => {
   return <Icon name="rightcircle" size={30} />;
@@ -16,11 +17,11 @@ const NextButton = () => {
 //     )
 // }
 
-const OnboardingScreen = ({ navigation }: { navigation: any }) => {
+const OnboardingScreen = ({ navigation }: { navigation: NavigationProp<any> }) => {
   return (
     <Onboarding
       onSkip={() => navigation.navigate("Welcome")}
-      onDone={() => navigation.navigate("Home")}
+      onDone={() => navigation.navigate("PrimaryNavigation")}
       nextLabel={<NextButton />}
       // DoneButtonComponent={DoneButton}
       bottomBarHighlight={false}

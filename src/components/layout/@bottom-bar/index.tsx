@@ -24,7 +24,7 @@ const TabIcon = ({ name }: { name: IconName }) => {
   return <Image source={icons[name]} className={`w-${w} h-${h}`} />;
 };
 
-const Main = () => {
+const PrimaryNavigation = () => {
   return (
     <Tab.Navigator
       screenOptions={({ route }) => ({
@@ -62,4 +62,4 @@ const Main = () => {
   );
 };
 
-export default Main;
+export default PrimaryNavigation;

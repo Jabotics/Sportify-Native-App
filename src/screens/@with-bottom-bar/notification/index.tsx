@@ -1,7 +1,7 @@
-import React from 'react'
+import React, { FC } from 'react'
 import { Text, View } from 'react-native'
 
-const Notification = () => {
+const Notification: FC = () => {
   return (
     <View>
         <Text>Notification</Text>

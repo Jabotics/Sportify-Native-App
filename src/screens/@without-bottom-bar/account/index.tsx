@@ -2,6 +2,7 @@ import React from 'react'
 import { Image, ScrollView, Text, Touchable, TouchableOpacity, View } from 'react-native'
 import Icon from 'react-native-vector-icons/Feather';
 import AntIcon from 'react-native-vector-icons/AntDesign';
+import { NavigationProp } from '@react-navigation/native';
 
 const Menus = ({ iconName, menuName }: { iconName: string, menuName: string }) => (
   <View className={`border-b p-3 ${menuName == 'Bookings' && 'border-t'} border-gray-300`}>
@@ -23,7 +24,7 @@ const menus = [
 
 //Avatar Component
 interface AvatarImageProps {
-  navigation: any;
+  navigation: NavigationProp<any>;
 }
 export const AvatarImage: React.FC<AvatarImageProps> = ({ navigation }) => (
   <View className='relative'>
