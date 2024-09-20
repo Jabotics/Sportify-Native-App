@@ -10,7 +10,7 @@ const Searchbar = () => {
       <View className="bg-gray-400 p-1 px-2 rounded-md flex justify-center">
         <Icon name="hearto" size={20} color={"#041a48"} />
       </View>
-      {/* <View>
+      <View>
         <View className="flex flex-row border ml-4 items-center rounded-md">
           <View className="mb-1 ml-2">
             <EvilIcon name="search" size={25} />
@@ -22,7 +22,7 @@ const Searchbar = () => {
             <MCIcon name="microphone-outline" size={25} />
           </View>
         </View>
-      </View> */}
+      </View>
     </View>
   );
 };
