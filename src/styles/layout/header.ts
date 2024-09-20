@@ -4,6 +4,6 @@ export const headerStyles = StyleSheet.create({
   container: {
     backgroundColor: 'white',
     paddingVertical: 16,
-    marginTop: 40,
+    // marginTop: 40,
   }
 })

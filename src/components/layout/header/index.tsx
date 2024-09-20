@@ -5,13 +5,14 @@ import { View, Text } from "react-native";
 import { headerStyles } from "@/styles/layout/header";
 import Topbar from "./top-bar";
 import Searchbar from "./search-bar";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 const index = () => {
   return (
-    <View style={headerStyles.container}>
+    <SafeAreaView style={headerStyles.container}>
       <Topbar />
       <Searchbar />
-    </View>
+    </SafeAreaView>
   );
 };
 

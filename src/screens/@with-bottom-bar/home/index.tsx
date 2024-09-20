@@ -26,29 +26,29 @@ const Home: FC = () => {
         </View>
 
         {/* All Sports Component */}
-        <View className='mt-5'>
+        {/* <View className='mt-5'>
           <AllSports />
-        </View>
+        </View> */}
 
         {/* All Grounds Component */}
-        <View className='mt-5'>
+        {/* <View className='mt-5'>
           <AllGrounds />
-        </View>
+        </View> */}
 
         {/* Review Component */}
-        <View className='mt-10'>
+        {/* <View className='mt-10'>
           <Review />
-        </View>
+        </View> */}
 
         {/* NewsLetter Component */}
-        <View className='mt-10'>
+        {/* <View className='mt-10'>
           <NewsLetter />
-        </View>
+        </View> */}
 
         {/* Footer Component */}
-        <View className='mt-10'>
+        {/* <View className='mt-10'>
           <Footer />
-        </View>
+        </View> */}
       </ScrollView>
     </View>
   )
