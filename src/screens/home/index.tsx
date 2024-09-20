@@ -1,15 +1,20 @@
 import React from 'react'
 import { ScrollView, Text, TextInput, TouchableOpacity, View } from 'react-native';
-import Header from './components/Header';
-import Searchbar from './components/Searchbar';
-import TopGround from './components/TopGround';
-import GroundCard from '../../components/GroundCard';
 import Icon from 'react-native-vector-icons/AntDesign';
-import AllGrounds from './components/AllGrounds';
-import AllSports from './components/AllSports';
-import Review from './components/Review';
-import NewsLetter from './components/NewsLetter';
-import Footer from './components/Footer';
+
+// CUSTOM IMPORTS
+import {
+  
+  Header,
+  AllGrounds,
+  AllSports,
+  Footer,
+  NewsLetter,
+  Review,
+  Searchbar,
+  TopGround
+} from './components'
+import GroundCard from '../../components/shared/ground-card';
 
 const Home = () => {
   return (

@@ -2,7 +2,7 @@ import { View, Text, Pressable } from "react-native";
 import React from "react";
 import { LinearGradient } from "expo-linear-gradient";
 import COLORS from "../../utils/constants/colors";
-import Button from "../../components/Button";
+import Button from "../../components/shared/button";
 
 export default function Welcome({ navigation }: { navigation: any }) {
   return (

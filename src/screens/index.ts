@@ -1,5 +1,6 @@
-export { default as Home } from './home/home';
-export { default as Login } from './login/Login';
-export { default as Welcome } from './welcome/welcome';
-export { default as GroundList } from './grounds/GroundList';
-export { default as Onboarding } from './onboarding/Onboarding';
+export { default as Home } from './home';
+export { default as Login } from './login';
+export { default as Welcome } from './welcome';
+export { default as GroundList } from './grounds';
+export { default as Onboarding } from './onboarding';
+export { default as Main } from './main';

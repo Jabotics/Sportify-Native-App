@@ -1,10 +1,10 @@
 import React from 'react'
-import Home from '../home/home';
-import Play from '../play/Play';
-import Chat from '../chat/Chat';
-import Account from '../account/Account';
+import Home from '../home';
+import Play from '../play';
+import Chat from '../chat';
+import Account from '../account';
 import { Image, Text, View } from 'react-native';
-import Notification from '../notification/Notification';
+import Notification from '../notification';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 const Tab = createBottomTabNavigator();

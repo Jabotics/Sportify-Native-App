@@ -1,6 +1,6 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 import { APIEndPoints } from "../../../services/APIEndpoints";
-import { RootState } from "../../store";
+import { RootState } from "../..";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
 export const groundApi = createApi({

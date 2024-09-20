@@ -1,7 +1,7 @@
 import React, { useRef, useState } from 'react'
 import { Text, TextInput, TouchableOpacity, View } from 'react-native'
-import { RootState, useAppSelector } from '../../../redux/store';
-import { useValidateOtpMutation } from '../../../redux/services/auth/authApi';
+import { RootState, useAppSelector } from '../../../store';
+import { useValidateOtpMutation } from '../../../store/services/auth/authApi';
 
 const ValidateOTP = () => {
     const [otp, setOtp] = useState<string[]>(['', '', '', '']);

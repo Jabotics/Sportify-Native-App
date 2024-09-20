@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { ScrollView, Text, TouchableOpacity, View } from 'react-native'
 import Icon from 'react-native-vector-icons/AntDesign';
-import GroundCard from '../../../components/GroundCard';
+import GroundCard from '../../../../components/shared/ground-card';
 
 const TabButtons = () => {
     const [activeTab, setActiveTab] = useState('bfu');

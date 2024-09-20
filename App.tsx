@@ -1,32 +1,27 @@
-import { NavigationContainer } from "@react-navigation/native";
-import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import React from 'react';
+import { SafeAreaView, StyleSheet } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { Provider } from 'react-redux';
 
-import {
-  Welcome,
-  Login,
-  GroundList,
-  Onboarding,
-  Home
-} from "./src/screens";
-import { store } from './src/redux/store';
-import { Provider } from "react-redux";
-import Main from "./src/screens/main/Main";
-import EditProfile from "./src/screens/profile/EditProfile";
+// CUSTOM IMPORTS
+import Router from './src/components/router';
 
-const Stack = createNativeStackNavigator();
+import { store } from './src/store';
+
 export default function App() {
   return (
-    <NavigationContainer>
-      <Provider store={store}>
-        <Stack.Navigator>
-          <Stack.Screen name="Onboarding" component={Onboarding} options={{ headerShown: false }} />
-          <Stack.Screen name="GroundList" component={GroundList} options={{ headerShown: false }} />
-          <Stack.Screen name="Welcome" component={Welcome} options={{ headerShown: false }} />
-          <Stack.Screen name="Login" component={Login} options={{ headerShown: false }} />
-          <Stack.Screen name="Main" component={Main} options={{ headerShown: false }} />          
-          <Stack.Screen name="EditProfile" component={EditProfile} options={{ headerShown: false }} />          
-        </Stack.Navigator>
-      </Provider>
-    </NavigationContainer>
+    <Provider store={store}>
+      <SafeAreaView style={styles.safeArea}>
+        <NavigationContainer>
+          <Router />
+        </NavigationContainer>
+      </SafeAreaView>
+    </Provider>
   );
-};
+}
+
+const styles = StyleSheet.create({
+  safeArea: {
+    flex: 1,
+  },
+});

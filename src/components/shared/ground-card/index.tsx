@@ -15,7 +15,7 @@ const GroundCard = () => {
     return (
         <View className='w-48 h-60 bg-white rounded-md overflow-hidden border border-gray-300'>
             <View className='h-32 relative'>
-                <Image source={require('../assets/images/ground.jpg')} className='w-[100%] h-[100%]' style={{ resizeMode: 'cover' }} />
+                <Image source={require('@/assets/images/ground.jpg')} className='w-[100%] h-[100%]' style={{ resizeMode: 'cover' }} />
                 <View style={{ position: 'absolute', top: 10, left: 15, justifyContent: 'center', alignItems: 'center' }} className='bg-stone-600 w-10 flex flex-row rounded p-[1px]'>
                     <Icon name='star' size={12} color={'white'}/>
                     <Text className='text-white text-xs ml-[2px]'>4.5</Text>
