@@ -1,6 +1,6 @@
 import { View, Text, TouchableOpacity, TextInput } from 'react-native'
 import React from 'react'
-import { AvatarImage } from '../account'
+import { AvatarImage } from '@/screens/@without-bottom-bar/account'
 
 const EditProfile = () => {
     return (

@@ -1,7 +1,7 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
-import { APIEndPoints } from '../../../services/APIEndpoints';
+import { APIEndPoints } from '@/services/APIEndpoints';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { RootState } from '../..';
+import { RootState } from '@/store';
 
 export const authApi = createApi({
     reducerPath: 'AuthApi',

@@ -28,7 +28,7 @@ interface AvatarImageProps {
 export const AvatarImage: React.FC<AvatarImageProps> = ({ navigation }) => (
   <View className='relative'>
     <View style={{ width: 92, height: 92, overflow: 'hidden', borderRadius: 8, position: 'relative', borderBottomEndRadius: -100 }} className='border-gray-300 border'>
-      <Image source={require('../../assets/images/male.jpg')} style={{ resizeMode: 'cover', width: '100%', height: '100%' }} />
+      <Image source={require('@/assets/images/temp/male.jpg')} style={{ resizeMode: 'cover', width: '100%', height: '100%' }} />
     </View>
     <TouchableOpacity style={{
       position: 'absolute',

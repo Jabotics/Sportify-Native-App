@@ -1,8 +1,8 @@
 import React from 'react'
-import { APIEndPoints } from '../../services/APIEndpoints';
-import { RootState, useAppSelector } from '../../store';
+import { APIEndPoints } from '@/services/APIEndpoints';
+import { RootState, useAppSelector } from '@/store';
 import { FlatList, Image, SafeAreaView, Text, View } from 'react-native'
-import { useFetchGroundsQuery } from '../../store/services/ground/groundApi'
+import { useFetchGroundsQuery } from '@/store/services/ground/groundApi'
 
 interface ListItemProps {
   name: string;

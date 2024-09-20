@@ -14,7 +14,7 @@ import {
   Searchbar,
   TopGround
 } from './components'
-import GroundCard from '../../components/shared/ground-card';
+import GroundCard from '@/components/shared/ground-card';
 
 const Home = () => {
   return (

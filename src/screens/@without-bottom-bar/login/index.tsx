@@ -18,7 +18,7 @@ const Login = ({navigation}: {navigation: any}) => {
                     <View>
                         <View className='flex items-center mt-7'>
                             <View>
-                                <Image source={require('../../assets/images/onboarding-img1.png')} className='w-16 h-16' />
+                                <Image source={require('@/assets/images/onboarding/onboarding-img1.png')} className='w-16 h-16' />
                                 <Text className='text-center font-bold text-2xl italic mt-4 text-primary'>Sportify</Text>
                             </View>
                         </View>

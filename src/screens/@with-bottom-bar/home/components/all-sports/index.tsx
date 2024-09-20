@@ -4,11 +4,11 @@ import { Image, ScrollView, Text, View } from 'react-native'
 type sportsName = 'cricket' | 'football' | 'hockey' | 'swiming' | 'badminton';
 
 const sportIcons = {
-  cricket: require('@/assets/images/cricket.png'),
-  hockey: require('@/assets/images/hockey.png'),
-  football: require('@/assets/images/football.png'),
-  swiming: require('@/assets/images/swiming.png'),
-  badminton: require('@/assets/images/badminton.png'),
+  cricket: require('@/assets/images/icons/sports-icons/cricket.png'),
+  hockey: require('@/assets/images/icons/sports-icons/hockey.png'),
+  football: require('@/assets/images/icons/sports-icons/football.png'),
+  swiming: require('@/assets/images/icons/sports-icons/swiming.png'),
+  badminton: require('@/assets/images/icons/sports-icons/badminton.png'),
 }
 
 const sports: sportsName[] = ['cricket', 'hockey', 'football', 'swiming', 'badminton'];
