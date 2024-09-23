@@ -14,7 +14,7 @@ module.exports = function (api) {
           },
         },
       ],
-      "@babel/plugin-transform-modules-commonjs",
+      // "@babel/plugin-transform-modules-commonjs",
     ],
   };
 };

@@ -1,4 +1,4 @@
-const COLORS = require("./src/styles/abstracts/colors.ts").default;
+// const COLORS = require("./src/styles/abstracts/colors.ts").default;
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
@@ -9,7 +9,7 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        ...COLORS, 
+        // ...COLORS, 
       },
     },
   },
