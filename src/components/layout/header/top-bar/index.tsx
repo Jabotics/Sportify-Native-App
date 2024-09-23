@@ -19,7 +19,7 @@ const Topbar = () => {
 
       <View style={headerStyles.topBarButtonContainer}>
         <TouchableOpacity style={headerStyles.topBarSignInButton}>
-          <Text style={headerStyles.topBarSignInText}>Sign in</Text>
+          <Text style={headerStyles.topBarSignInText}>Sign up</Text>
         </TouchableOpacity>
         <View style={headerStyles.topBarIconContainer}>
           <Icon name="question" size={25} color={COLORS.white} />

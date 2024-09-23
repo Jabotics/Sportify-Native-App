@@ -17,39 +17,54 @@ const icons: Record<IconName, any> = {
   notification: require("@/assets/images/icons/bottom-bar-icons/notification.png"),
 };
 
-const TabIcon = ({ name }: { name: IconName }) => {
-  let w = 6;
-  let h = 6;
-  // (name === 'message' || name === 'notification') && (w = 7, h = 7)
-  return <Image source={icons[name]} className={`w-${w} h-${h}`} />;
+const TabIcon = ({ name, focused }: { name: IconName; focused: boolean }) => {
+  return (
+    <Image
+      source={icons[name]}
+      style={{ height: 24, width: 24, marginTop: 2, opacity: focused ? 1 : 0.6 }}
+    />
+  );
+};
+
+const TabLabel = ({ label, focused }: { label: string; focused: boolean }) => {
+  return (
+    <Text style={{ fontSize: 12, color: 'black', marginBottom: 2, opacity: focused ? 1 : 0.4 }}> 
+      {label}
+    </Text>
+  );
 };
 
 const PrimaryNavigation = () => {
   return (
     <Tab.Navigator
       screenOptions={({ route }) => ({
-        tabBarIcon: ({ focused, color, size }) => {
+        tabBarIcon: ({ focused }) => {
           let iconName: IconName;
 
           switch (route.name) {
             case "Home":
-              iconName = focused ? "home" : "home";
+              iconName = "home";
               break;
             case "Play":
-              iconName = focused ? "play" : "play";
+              iconName = "play";
               break;
             case "Chat":
-              iconName = focused ? "message" : "message";
+              iconName = "message";
               break;
             case "Notification":
-              iconName = focused ? "notification" : "notification";
+              iconName = "notification";
               break;
             default:
-              iconName = focused ? "account" : "account";
+              iconName = "account";
           }
-          return <TabIcon name={iconName} />;
+          return <TabIcon name={iconName} focused={focused} />;
         },
-        tabBarShowLabel: false,
+        tabBarLabel: ({ focused }) => {
+          const label = route.name; 
+          return <TabLabel label={label} focused={focused} />;
+        },
+        tabBarShowLabel: true,
+        tabBarStyle: { height: 60 }, 
         headerShown: false,
       })}
     >

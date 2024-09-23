@@ -4,7 +4,7 @@ import { ActivityIndicator, Text, View } from "react-native";
 // CUSTOM IMPORTS
 import { topGroundStyles } from "@/styles/screens/home/top-ground-items";
 import TopGroundItems from "./top-ground-items";
-import { useLoadFonts } from "@/styles/abstracts/fonts";
+import { useLoadFonts } from "@/utils/hooks/fonts";
 import COLORS from "@/styles/abstracts/colors";
 
 const TopGround = () => {
