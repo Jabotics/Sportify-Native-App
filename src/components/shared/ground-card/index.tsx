@@ -16,7 +16,7 @@ const GroundCard = () => {
     <View className="w-48 h-60 bg-white rounded-md overflow-hidden border border-gray-300">
       <View className="h-32 relative">
         <Image
-          source={require("@/assets/images/temp/ground.jpg")}
+          source={require("@/assets/images/temp/ground.png")}
           className="w-[100%] h-[100%]"
           style={{ resizeMode: "cover" }}
         />

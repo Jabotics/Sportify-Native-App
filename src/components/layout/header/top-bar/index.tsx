@@ -1,32 +1,34 @@
+import COLORS from "@/styles/abstracts/colors";
+import { headerStyles } from "@/styles/layout/header";
 import React from "react";
 import { Text, TouchableOpacity, View } from "react-native";
 import Icon from "react-native-vector-icons/AntDesign";
 
-const Header = () => {
+const Topbar = () => {
   return (
-    <View className="flex flex-row justify-between mx-4">
+    <View style={headerStyles.topBarContainer}>
       <View>
-        <View className="flex flex-row items-center gap-2">
-          <View className="w-6 h-6 bg-gray-300" />
-          <Text className="text-xl italic font-bold">Sportify</Text>
+        <View style={headerStyles.topBarTitleContainer}>
+          <View style={headerStyles.topBarIconPlaceholder} />
+          <Text style={headerStyles.topBarTitle}>Sportify</Text>
         </View>
         <View>
-          <Text className="text-xs">Shibpur, Howrah</Text>
+          <Text style={headerStyles.topBarSubtitle}>Shibpur, Howrah</Text>
         </View>
       </View>
 
-      <View className="flex flex-row items-center gap-2">
-        <TouchableOpacity className="bg-primary flex justify-center items-center w-24 h-9 rounded-md">
-          <Text className="italic text-white text-center text-base">
-            Sign in
-          </Text>
+      <View style={headerStyles.topBarButtonContainer}>
+        <TouchableOpacity style={headerStyles.topBarSignInButton}>
+          <Text style={headerStyles.topBarSignInText}>Sign in</Text>
         </TouchableOpacity>
-        <View>
-          <Icon name="questioncircle" size={35} color={"#041a48"} />
+        <View style={headerStyles.topBarIconContainer}>
+          <View style={{ backgroundColor: "white", borderRadius: 50, borderColor: COLORS.primary }}>
+            <Icon name="question" size={25} color={COLORS.white} />
+          </View>
         </View>
       </View>
     </View>
   );
 };
 
-export default Header;
+export default Topbar;

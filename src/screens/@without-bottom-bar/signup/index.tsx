@@ -13,7 +13,7 @@ export default function Welcome({ navigation }: { navigation: NavigationProp<any
       }}
       colors={[COLORS.secondary, COLORS.primary]}
     >
-      <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
+      {/* <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
         <View
           style={{
             paddingHorizontal: 22,
@@ -99,7 +99,7 @@ export default function Welcome({ navigation }: { navigation: NavigationProp<any
             </Pressable>
           </View>
         </View>
-      </View>
+      </View> */}
     </LinearGradient>
   );
 }

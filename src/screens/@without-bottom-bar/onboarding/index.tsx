@@ -12,7 +12,7 @@ import COLORS from "@/styles/abstracts/colors";
 const OnboardingScreen = ({ navigation }: { navigation: NavigationProp<any> }) => {
   return (
     <Onboarding
-      onSkip={() => navigation.navigate("Welcome")}
+      onSkip={() => navigation.navigate("PrimaryNavigation")}
       onDone={() => navigation.navigate("PrimaryNavigation")}
       nextLabel={<NextButton />}
       bottomBarHighlight={false}
