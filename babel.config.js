@@ -9,7 +9,8 @@ module.exports = function (api) {
         {
           root: ["./src"],
           alias: {
-            "@": "./src"
+            "@": "./src",
+            "@constants": "./src/services/@constants.ts",
           }
         }
       ]

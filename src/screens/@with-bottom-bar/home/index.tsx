@@ -1,31 +1,22 @@
-import React from 'react'
-import { ScrollView, Text, TextInput, TouchableOpacity, View } from 'react-native';
-import Icon from 'react-native-vector-icons/AntDesign';
+import React, { FC } from 'react'
+import { ScrollView, StatusBar, View } from 'react-native';
 
 // CUSTOM IMPORTS
 import {
   
-  Header,
   AllGrounds,
   AllSports,
   Footer,
   NewsLetter,
   Review,
-  Searchbar,
   TopGround
 } from './components'
 import GroundCard from '@/components/shared/ground-card';
+// import { SafeAreaView } from 'react-native-safe-area-context';
 
-const Home = () => {
+const Home: FC = () => {
   return (
     <View className='bg-white flex-1'>
-      {/* fixed components */}
-      <View className='bg-white py-4'>
-        <View className='mt-10'>
-          <Header />
-          <Searchbar />
-        </View>
-      </View>
 
       {/* Scrollable components */}
       <ScrollView >
@@ -35,29 +26,29 @@ const Home = () => {
         </View>
 
         {/* All Sports Component */}
-        <View className='mt-5'>
+        {/* <View className='mt-5'>
           <AllSports />
-        </View>
+        </View> */}
 
         {/* All Grounds Component */}
-        <View className='mt-5'>
+        {/* <View className='mt-5'>
           <AllGrounds />
-        </View>
+        </View> */}
 
         {/* Review Component */}
-        <View className='mt-10'>
+        {/* <View className='mt-10'>
           <Review />
-        </View>
+        </View> */}
 
         {/* NewsLetter Component */}
-        <View className='mt-10'>
+        {/* <View className='mt-10'>
           <NewsLetter />
-        </View>
+        </View> */}
 
         {/* Footer Component */}
-        <View className='mt-10'>
+        {/* <View className='mt-10'>
           <Footer />
-        </View>
+        </View> */}
       </ScrollView>
     </View>
   )

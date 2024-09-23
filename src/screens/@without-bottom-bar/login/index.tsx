@@ -2,8 +2,9 @@ import React, { useState } from 'react';
 import { Image, Text, TextInput, TouchableOpacity, View, ScrollView, KeyboardAvoidingView, Platform } from 'react-native';
 import Icon from 'react-native-vector-icons/AntDesign';
 import ValidateOTP from './components/ValidateOTP';
+import { NavigationProp } from '@react-navigation/native';
 
-const Login = ({navigation}: {navigation: any}) => {
+const Login = ({navigation}: {navigation: NavigationProp<any>}) => {
     const [showLoginForm, setShowLoginForm] = useState(true);
 
     return (
