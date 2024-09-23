@@ -19,7 +19,7 @@ const NextButton = () => {
 const OnboardingScreen = ({ navigation }: { navigation: any }) => {
   return (
     <Onboarding
-      onSkip={() => navigation.navigate("Welcome")}
+      onSkip={() => navigation.navigate("Chat")}
       onDone={() => navigation.navigate("Home")}
       nextLabel={<NextButton />}
       // DoneButtonComponent={DoneButton}

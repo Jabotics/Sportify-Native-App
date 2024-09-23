@@ -6,6 +6,7 @@ import {
   Grounds,
   Onboarding,
   Home,
+  Chat,
   // EditProfile,
 } from '@/screens';
 
@@ -19,7 +20,7 @@ const Router = () => {
       <Stack.Screen name="Welcome" component={Welcome} options={{ headerShown: false }} />
       <Stack.Screen name="Login" component={Login} options={{ headerShown: false }} />
       <Stack.Screen name="Home" component={Home} options={{ headerShown: false }} />
-      {/* <Stack.Screen name="EditProfile" component={EditProfile} options={{ headerShown: false }} /> */}
+      <Stack.Screen name="Chat" component={Chat} options={{ headerShown: false }} />
     </Stack.Navigator>
   );
 };
