@@ -1,5 +1,3 @@
-// const COLORS = require("./src/styles/abstracts/colors.ts").default;
-
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
@@ -9,8 +7,8 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        // ...COLORS, 
-      },
+        primary: '#041A48'
+      }
     },
   },
   plugins: [],

@@ -11,10 +11,9 @@ module.exports = function (api) {
           alias: {
             "@": "./src",
             "@constants": "./src/services/@constants.ts",
-          },
-        },
-      ],
-      // "@babel/plugin-transform-modules-commonjs",
-    ],
+          }
+        }
+      ]
+    ]
   };
 };
