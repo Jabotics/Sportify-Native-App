@@ -1,21 +1,13 @@
-import { Button, Image, Text, TouchableOpacity, View } from "react-native";
+import { Image, View } from "react-native";
 import Onboarding from "react-native-onboarding-swiper";
-import Icon from "react-native-vector-icons/AntDesign";
 import { NavigationProp } from '@react-navigation/native';
 
-const NextButton = () => {
-  return <Icon name="rightcircle" size={30} />;
-};
+// CUSTOM IMPORTS
+import { onboardingPages } from "@constants";
+import NextButton from "./next-button";
 
-// const DoneButton = ({...props}) => {
-//     return (
-//         <TouchableOpacity {...props} className="bg-blue-800 mr-2 p-2 flex justify-center items-center rounded-xl">
-//             <View>
-//                 <Text className="text-white">Get Started</Text>
-//             </View>
-//         </TouchableOpacity>
-//     )
-// }
+import { onboardingStyles } from "@/styles/screens/onboarding";
+import COLORS from "@/styles/abstracts/colors";
 
 const OnboardingScreen = ({ navigation }: { navigation: NavigationProp<any> }) => {
   return (
@@ -23,49 +15,30 @@ const OnboardingScreen = ({ navigation }: { navigation: NavigationProp<any> }) =
       onSkip={() => navigation.navigate("Welcome")}
       onDone={() => navigation.navigate("PrimaryNavigation")}
       nextLabel={<NextButton />}
-      // DoneButtonComponent={DoneButton}
       bottomBarHighlight={false}
       bottomBarHeight={90}
       controlStatusBar={false}
       DotComponent={({ selected }) => (
         <View
           className={`h-2 rounded mx-1 ${selected ? "w-5" : "w-2"} ${
-            selected ? "bg-[#000]" : "bg-[#e0e0e0]"
+            selected ? `bg-[${COLORS.primary}]` : "bg-transparent"
           }`}
+          style={{
+            ...onboardingStyles.dots,
+            width: selected ? 20 : 8,
+            backgroundColor: selected ? COLORS.primary : "#00000000",
+            borderColor: selected ? "#00000000" : COLORS.primary,
+          }}
         />
       )}
-      pages={[
-        {
-          backgroundColor: "#a6e4d0",
-          image: (
-            <Image
-              source={require("@/assets/images/onboarding/onboarding-img1.png")}
-            />
-          ),
-          title: "Onboarding",
-          subtitle: "Done with React Native Onboarding Swiper",
-        },
-        {
-          backgroundColor: "#fdeb93",
-          image: (
-            <Image
-              source={require("@/assets/images/onboarding/onboarding-img2.png")}
-            />
-          ),
-          title: "Onboarding",
-          subtitle: "Done with React Native Onboarding Swiper",
-        },
-        {
-          backgroundColor: "#D7F4F5",
-          image: (
-            <Image
-              source={require("@/assets/images/onboarding/onboarding-img3.png")}
-            />
-          ),
-          title: "Onboarding",
-          subtitle: "Done with React Native Onboarding Swiper",
-        },
-      ]}
+      pages={onboardingPages.map(page => ({
+        ...page,
+        image: <Image source={page.image} />, 
+      }))}
+      containerStyles={onboardingStyles.container}
+      titleStyles={onboardingStyles.title}
+      subTitleStyles={onboardingStyles.subtitle}
+      // DoneButtonComponent={DoneButton}
     />
   );
 };
