@@ -16,7 +16,7 @@ import GroundCard from '@/components/shared/ground-card';
 
 const Home: FC = () => {
   return (
-    <View className='bg-white flex-1 px-4'>
+    <View className='bg-transparent flex-1 px-4'>
 
       {/* Scrollable components */}
       <ScrollView >

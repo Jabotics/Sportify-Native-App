@@ -4,7 +4,7 @@ import COLORS from "../abstracts/colors";
 
 export const headerStyles = StyleSheet.create({
   container: {
-    backgroundColor: 'white',
+    backgroundColor: 'transparent',
     paddingVertical: 16,
     paddingHorizontal: 16,
   },
@@ -29,9 +29,11 @@ export const headerStyles = StyleSheet.create({
     fontSize: 20,
     fontStyle: "italic",
     fontWeight: "bold",
+    color: COLORS.white,
   },
   topBarSubtitle: {
     fontSize: 12,
+    color: COLORS.white,
   },
   topBarButtonContainer: {
     flexDirection: "row",
@@ -84,6 +86,7 @@ export const headerStyles = StyleSheet.create({
     borderRadius: 8,
     alignItems: "center",
     paddingHorizontal: 4,
+    backgroundColor: COLORS.white,
   },
   inputContainer: {
     flexDirection: "row",
@@ -93,6 +96,7 @@ export const headerStyles = StyleSheet.create({
   },
   searchIcon: {
     marginBottom: 4,
+    color: "#33333365"
   },
   textInput: {
     flex: 1,

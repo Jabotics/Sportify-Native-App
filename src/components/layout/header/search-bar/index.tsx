@@ -14,8 +14,12 @@ const Searchbar = () => {
       <View style={headerStyles.searchContainer}>
         <View style={headerStyles.inputContainer}>
           <EvilIcon name="search" size={25} style={headerStyles.searchIcon} />
-          <TextInput placeholder="Search" style={headerStyles.textInput} />
-          <MCIcon name="microphone-outline" size={25} />
+          <TextInput placeholder="Search" style={headerStyles.textInput} placeholderTextColor="#33333365" />
+          <MCIcon
+            name="microphone-outline"
+            size={25}
+            style={{ color: "#33333365" }}
+          />
         </View>
       </View>
     </View>

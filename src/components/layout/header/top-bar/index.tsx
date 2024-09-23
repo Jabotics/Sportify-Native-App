@@ -22,9 +22,7 @@ const Topbar = () => {
           <Text style={headerStyles.topBarSignInText}>Sign in</Text>
         </TouchableOpacity>
         <View style={headerStyles.topBarIconContainer}>
-          <View style={{ backgroundColor: "white", borderRadius: 50, borderColor: COLORS.primary }}>
-            <Icon name="question" size={25} color={COLORS.white} />
-          </View>
+          <Icon name="question" size={25} color={COLORS.white} />
         </View>
       </View>
     </View>
