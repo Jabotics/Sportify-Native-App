@@ -26,7 +26,7 @@ const TopGround = () => {
     return (
       <Text
         className="text-center text-lg text-white"
-        style={{ fontFamily: "RobotoCondensed", fontWeight: "condensed" }}
+        style={{ fontFamily: "RobotoCondensed", fontWeight: "condensed", textShadowColor: COLORS.primaryShade2, textShadowOffset: { width: -1, height: 1 }, textShadowRadius: 5, }}
       >
         Top Grounds Of The Month
       </Text>

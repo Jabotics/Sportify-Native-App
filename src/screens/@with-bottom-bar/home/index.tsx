@@ -1,6 +1,7 @@
-import { FC, useRef } from "react";
+import { useRef } from "react";
 import { ScrollView, View, Text, StyleSheet, Animated } from "react-native";
 import Entypo from "react-native-vector-icons/Entypo";
+import { NavigationProp } from "@react-navigation/native";
 
 // CUSTOM IMPORTS
 import {
@@ -8,10 +9,11 @@ import {
   AllSports,
   Footer,
   NewsLetter,
+  AllGrounds,
 } from "./components";
 import { shadowStyles } from "@/styles/abstracts/utils";
 
-const Home: FC = () => {
+const Home = ({ navigation }: { navigation: NavigationProp<any> }) => {
   const scrollY = useRef(new Animated.Value(0)).current;
 
   const handleScroll = Animated.event(
@@ -50,8 +52,13 @@ const Home: FC = () => {
           </View>
 
           {/* All Sports Component */}
-          <View className="mt-5 px-4">
+          <View className="mt-5 pr-4 pl-2">
             <AllSports />
+          </View>
+
+          {/* All Grounds Component */}
+          <View className="mt-5 px-2">
+            <AllGrounds navigation={navigation} />
           </View>
 
           {/* NewsLetter Component */}

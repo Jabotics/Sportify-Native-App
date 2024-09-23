@@ -21,14 +21,14 @@ const TabIcon = ({ name, focused }: { name: IconName; focused: boolean }) => {
   return (
     <Image
       source={icons[name]}
-      style={{ height: 24, width: 24, marginTop: 2, opacity: focused ? 1 : 0.6 }}
+      style={{ height: 24, width: 24, marginTop: 10, opacity: focused ? 1 : 0.6 }}
     />
   );
 };
 
 const TabLabel = ({ label, focused }: { label: string; focused: boolean }) => {
   return (
-    <Text style={{ fontSize: 12, color: 'black', marginBottom: 2, opacity: focused ? 1 : 0.4 }}> 
+    <Text style={{ fontSize: 10, color: 'black', marginBottom: 4, opacity: focused ? 1 : 0.4 }}> 
       {label}
     </Text>
   );

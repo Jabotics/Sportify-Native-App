@@ -6,6 +6,7 @@ import Loading from "@/components/loading";
 import ErrorFallback from "@/components/error-fallback";
 import { LinearGradient } from "expo-linear-gradient";
 import COLORS from "@/styles/abstracts/colors";
+import { Image } from "react-native";
 
 // Custom gradient colors
 const gradientColors = [COLORS.primary, "#fff", "#fff"];
@@ -50,6 +51,10 @@ const loadComponent = (
             flex: 1, // Ensures the gradient covers the entire screen
           }}
         >
+          <Image
+            source={require('@/assets/images/patterns/pattern3.png')}
+            className="absolute"
+          />
           {toShowHeader ? <Header /> : null}
           <Suspense fallback={<Loading />}>
             {hasError ? (
