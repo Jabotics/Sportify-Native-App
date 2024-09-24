@@ -29,11 +29,9 @@ export const headerStyles = StyleSheet.create({
     fontSize: 20,
     fontStyle: "italic",
     fontWeight: "bold",
-    color: COLORS.white,
   },
   topBarSubtitle: {
     fontSize: 12,
-    color: COLORS.white,
   },
   topBarButtonContainer: {
     flexDirection: "row",

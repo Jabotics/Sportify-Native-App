@@ -112,7 +112,7 @@ export const Notification = loadComponent(
   true,
   false,
   true,
-  true
+  false
 );
 
 // Lazy-load screens without bottom bar

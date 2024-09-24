@@ -4,4 +4,7 @@ export interface AppSettingsInitialState {
   statusBar: {
     style: StatusBarStyle | null
   }
+  header: {
+    websiteNameStyle: "light" | "dark"
+  }
 }

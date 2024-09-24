@@ -6,6 +6,9 @@ const initialState: AppSettingsInitialState = {
   statusBar: {
     style: null,
   },
+  header: {
+    websiteNameStyle: "dark"
+  }
 };
 
 export const AppSettingsSlice = createSlice({
@@ -20,8 +23,17 @@ export const AppSettingsSlice = createSlice({
     resetStatusBar: (state) => {
       state.statusBar.style = null;
     },
+
+    setHeaderStyle: (state, action: PayloadAction<{ style: "light" | "dark" }>) => {
+      const { style: newStyle } = action.payload;
+
+      state.header.websiteNameStyle = newStyle;
+    },
+    resetHeaderStyle: (state) => {
+      state.header.websiteNameStyle = "dark";
+    },
   },
 });
 
-export const { setStatusBar, resetStatusBar } = AppSettingsSlice.actions;
+export const { setStatusBar, resetStatusBar, setHeaderStyle, resetHeaderStyle } = AppSettingsSlice.actions;
 export default AppSettingsSlice.reducer;
