@@ -1,6 +1,5 @@
-import COLORS from "@/styles/abstracts/colors";
-import { NavigationProp } from "@react-navigation/native";
 import { useEffect } from "react";
+import { NavigationProp } from "@react-navigation/native";
 import { View, Text, Pressable } from "react-native";
 import Animated, {
   Easing,
@@ -8,21 +7,23 @@ import Animated, {
   useAnimatedStyle,
   withTiming,
 } from "react-native-reanimated";
+
+// CUSTOM IMPORTS
+import COLORS from "@/styles/abstracts/colors";
 import { SafeAreaView } from "react-native-safe-area-context";
-import EntypoIcons from 'react-native-vector-icons/Entypo'
+import EntypoIcons from "react-native-vector-icons/Entypo";
+import AllFilters from "./all-filters";
 
 const GroundFilters = ({ navigation }: { navigation: NavigationProp<any> }) => {
-  const slideAnimation = useSharedValue(-300); // Start off-screen to the left
+  const slideAnimation = useSharedValue(-300);
 
   useEffect(() => {
-    // Slide in animation when the screen is focused
     slideAnimation.value = withTiming(0, {
       duration: 300,
       easing: Easing.inOut(Easing.ease),
     });
 
     return () => {
-      // Slide out animation when the screen is unfocused
       slideAnimation.value = withTiming(-300, {
         duration: 300,
         easing: Easing.inOut(Easing.ease),
@@ -52,23 +53,35 @@ const GroundFilters = ({ navigation }: { navigation: NavigationProp<any> }) => {
       ]}
     >
       <SafeAreaView className="mx-3">
-        <View className="flex flex-row justify-between items-center overflow-hidden mt-5 ">
-          <Pressable
-            onPress={() => navigation.goBack()}
-            className="flex flex-row gap-1 items-center justify-start"
-          >
-            <EntypoIcons name="cross" size={25} color={COLORS.primary} />
-            <Text style={{ color: COLORS.primary }} className="text-lg mb-0.5 font-semibold">Filters</Text>
-          </Pressable>
+        <View className="flex flex-row justify-between items-center overflow-hidden mt-5 border-b border-gray-200 pb-5">
+          <View className="flex-1 flex flex-row gap-1 items-center justify-between mr-5 ">
+            <Pressable onPress={() => navigation.goBack()} className="px-1">
+              <EntypoIcons name="cross" size={25} color={COLORS.primary} />
+            </Pressable>
+            <Text
+              style={{ color: COLORS.primary }}
+              className="text-xl mb-0.5 font-semibold"
+            >
+              Filter Ground
+            </Text>
+          </View>
 
           <Pressable
             onPress={() => {}}
-            className="flex flex-row gap-2 items-center mr-2"
+            className="flex flex-row gap-2 items-center mr-2 w-[45%] justify-end"
           >
             <Text className={`text-gray-400`}>Clear Filters</Text>
           </Pressable>
         </View>
-        {/* <Text>Filters Content</Text> */}
+
+        <View className="mt-8">
+          <AllFilters />
+        </View>
+        <View className="fixed bottom-0 left-0 right-0 border-t border-gray-300 h-20 w-full flex flex-row items-center justify-end">
+          <View className="px-10 py-3 bg-primary rounded-md">
+            <Text className="text-white">Apply</Text>
+          </View>
+        </View>
       </SafeAreaView>
     </Animated.View>
   );
