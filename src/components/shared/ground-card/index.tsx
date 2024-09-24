@@ -17,9 +17,9 @@ const AmenitiesComponent = () => (
 
 const arr = [, 1, 2, 3, 4, 5];
 
-const GroundCard = () => {
+const GroundCard = ({ showShadow = false }: { showShadow?: boolean }) => {
   return (
-    <View className="w-60 h-[90%] bg-white rounded-md overflow-hidden border border-gray-300/40 shadow-lg shadow-black relative flex flex-col items-center justify-center ml-2">
+    <View className={`w-full h-[95%] bg-white rounded-md overflow-hidden border border-gray-300/40 ${showShadow ? 'shadow-lg shadow-black' : ''} relative flex flex-col items-center justify-center ml-2`}>
       <View className="flex-1 w-full relative">
         <Image
           source={require("@/assets/images/temp/ground.png")}

@@ -1,13 +1,38 @@
+import COLORS from "@/styles/abstracts/colors";
 import { newsLetterStyles } from "@/styles/screens/home/newsletter";
+import { useLoadFonts } from "@/utils/hooks/fonts";
 import React from "react";
-import { Text, TextInput, TouchableOpacity, View } from "react-native";
+import {
+  ActivityIndicator,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  View,
+} from "react-native";
 import Icon from "react-native-vector-icons/MaterialCommunityIcons";
 
 const NewsLetter = () => {
+  const { fontsLoaded, error } = useLoadFonts();
+
+  const renderTitle1 = (title1: string) => {
+    if (error) {
+      return (
+        <Text className="text-center text-sm font-medium text-black">
+          Error loading fonts
+        </Text>
+      );
+    }
+
+    if (!fontsLoaded) {
+      return <ActivityIndicator size="small" color={COLORS.primary} />;
+    }
+
+    return <Text style={newsLetterStyles.title1}>{title1}</Text>;
+  };
   return (
     <View className="px-4">
       <View>
-        <Text style={newsLetterStyles.title1}>Subscribe to</Text>
+        {renderTitle1("Subscribe to")}
         <Text style={newsLetterStyles.title2}>Our Newsletter!</Text>
         <Text style={newsLetterStyles.title3}>
           Subscribe to our newsletter and stay updated

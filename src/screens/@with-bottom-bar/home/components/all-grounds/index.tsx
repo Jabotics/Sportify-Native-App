@@ -74,7 +74,7 @@ const AllGrounds = ({ navigation }: { navigation: NavigationProp<any> }) => {
           <Text className="text-primary font-bold text-lg">All Grounds</Text>
           <Text className="text-gray-400">4 items</Text>
         </View>
-        <TouchableOpacity onPress={() => navigation.navigate("Grounds")}>
+        <TouchableOpacity onPress={() => navigation.navigate("Play")}>
           <Icon name="rightcircle" size={20} color={COLORS.primaryShade1} />
         </TouchableOpacity>
       </View>
@@ -94,9 +94,9 @@ const AllGrounds = ({ navigation }: { navigation: NavigationProp<any> }) => {
         }}
       >
         {arr.map((item) => (
-          <React.Fragment key={item}>
+          <View className="w-60 mr-2" key={item}>
             <GroundCard />
-          </React.Fragment>
+          </View>
         ))}
       </ScrollView>
     </View>

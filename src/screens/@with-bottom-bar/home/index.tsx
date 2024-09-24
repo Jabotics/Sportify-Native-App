@@ -1,5 +1,5 @@
 import { useRef } from "react";
-import { ScrollView, View, Text, StyleSheet, Animated } from "react-native";
+import { View, Animated } from "react-native";
 import Entypo from "react-native-vector-icons/Entypo";
 import { NavigationProp } from "@react-navigation/native";
 
@@ -12,8 +12,10 @@ import {
   AllGrounds,
 } from "./components";
 import { shadowStyles } from "@/styles/abstracts/utils";
+import useStatusBarStyle from "@/utils/hooks/useStatusBar";
 
 const Home = ({ navigation }: { navigation: NavigationProp<any> }) => {
+  useStatusBarStyle('light');
   const scrollY = useRef(new Animated.Value(0)).current;
 
   const handleScroll = Animated.event(

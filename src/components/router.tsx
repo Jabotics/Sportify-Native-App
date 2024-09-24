@@ -1,4 +1,4 @@
-import React from 'react';
+import { Fragment } from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 // CUSTOM IMPORTS
@@ -10,19 +10,24 @@ import {
   // EditProfile,
 } from '@/screens';
 import PrimaryNavigation from './layout/@bottom-bar';
+import DynamicStatusBar from './shared/dynamic-statusbar';
 
 const Stack = createNativeStackNavigator();
 
 const Router = () => {
+  
   return (
-    <Stack.Navigator>
-      <Stack.Screen name="Onboarding" component={Onboarding} options={{ headerShown: false }} />
-      <Stack.Screen name="Grounds" component={Grounds} options={{ headerShown: false }} />
-      <Stack.Screen name="Welcome" component={Signup} options={{ headerShown: false }} />
-      <Stack.Screen name="Login" component={Login} options={{ headerShown: false }} />
-      <Stack.Screen name="PrimaryNavigation" component={PrimaryNavigation} options={{ headerShown: false }} />
-      {/* <Stack.Screen name="EditProfile" component={EditProfile} options={{ headerShown: false }} /> */}
-    </Stack.Navigator>
+    <Fragment>
+      <DynamicStatusBar />
+      <Stack.Navigator>
+        <Stack.Screen name="Onboarding" component={Onboarding} options={{ headerShown: false }} />
+        {/* <Stack.Screen name="Play" component={Grounds} options={{ headerShown: false }} /> */}
+        <Stack.Screen name="Welcome" component={Signup} options={{ headerShown: false }} />
+        <Stack.Screen name="Login" component={Login} options={{ headerShown: false }} />
+        <Stack.Screen name="PrimaryNavigation" component={PrimaryNavigation} options={{ headerShown: false }} />
+        {/* <Stack.Screen name="EditProfile" component={EditProfile} options={{ headerShown: false }} /> */}
+      </Stack.Navigator>
+    </Fragment>
   );
 };
 
