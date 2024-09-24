@@ -7,12 +7,12 @@ import { NavigationProp } from "@react-navigation/native";
 import {
   TopGround,
   AllSports,
-  Footer,
   NewsLetter,
   AllGrounds,
 } from "./components";
 import { shadowStyles } from "@/styles/abstracts/utils";
 import useStatusBarStyle from "@/utils/hooks/useStatusBar";
+import Footer from "@/components/layout/footer";
 
 const Home = ({ navigation }: { navigation: NavigationProp<any> }) => {
   useStatusBarStyle('light');

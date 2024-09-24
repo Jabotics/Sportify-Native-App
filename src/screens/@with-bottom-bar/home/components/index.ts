@@ -1,6 +1,5 @@
 export { default as AllGrounds } from './all-grounds'
 export { default as AllSports } from './all-sports'
-export { default as Footer } from './footer'
 export { default as NewsLetter } from './newsletter'
 export { default as Review } from './review'
 export { default as TopGround } from './top-ground'

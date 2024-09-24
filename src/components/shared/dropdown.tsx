@@ -28,10 +28,10 @@ const Dropdown: React.FC<DropdownProps> = ({ data, onSelect }) => {
     <View className="overflow-hidden">
       <TouchableOpacity
         onPress={() => setVisible(true)}
-        className="border rounded-md p-1 px-2 flex flex-row items-center justify-between"
+        className="border rounded-md h-10 px-5 flex flex-row items-center justify-between border-gray-300"
       >
         <Text className="text-center text-md mr-1">
-          {selectedItem || "Sort"}
+          {selectedItem || "Sort By"}
         </Text>
         <Icon name="down" size={12} />
       </TouchableOpacity>

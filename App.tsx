@@ -12,6 +12,7 @@ export type RootStackParamList = {
   Home: undefined;
   Login: undefined;
   GroundList: undefined;
+  Filters: undefined;
 };
 
 export type NavigationProp = NativeStackNavigationProp<RootStackParamList>;

@@ -5,12 +5,11 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import {
   Signup,
   Login,
-  Grounds,
   Onboarding,
-  // EditProfile,
 } from '@/screens';
-import PrimaryNavigation from './layout/@bottom-bar';
+import PrimaryNavigation from './@bottom-bar';
 import DynamicStatusBar from './shared/dynamic-statusbar';
+import GroundFilters from '@/screens/@with-bottom-bar/grounds/filters';
 
 const Stack = createNativeStackNavigator();
 
@@ -21,11 +20,10 @@ const Router = () => {
       <DynamicStatusBar />
       <Stack.Navigator>
         <Stack.Screen name="Onboarding" component={Onboarding} options={{ headerShown: false }} />
-        {/* <Stack.Screen name="Play" component={Grounds} options={{ headerShown: false }} /> */}
+        <Stack.Screen name="Filters" component={GroundFilters} options={{ headerShown: false }} />
         <Stack.Screen name="Welcome" component={Signup} options={{ headerShown: false }} />
         <Stack.Screen name="Login" component={Login} options={{ headerShown: false }} />
         <Stack.Screen name="PrimaryNavigation" component={PrimaryNavigation} options={{ headerShown: false }} />
-        {/* <Stack.Screen name="EditProfile" component={EditProfile} options={{ headerShown: false }} /> */}
       </Stack.Navigator>
     </Fragment>
   );

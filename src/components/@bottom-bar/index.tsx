@@ -4,35 +4,11 @@ import { Image, Text, View } from "react-native";
 
 // CUSTOM IMPORTS
 import { Home, Grounds, Notification, Chat, Account } from "@/screens";
+import { IconName } from "@/types";
+import TabIcon from "./tab-icons";
+import TabLabel from "./tab-label";
 
 const Tab = createBottomTabNavigator();
-
-type IconName = "home" | "play" | "message" | "notification" | "account";
-
-const icons: Record<IconName, any> = {
-  home: require("@/assets/images/icons/bottom-bar-icons/home.png"),
-  play: require("@/assets/images/icons/bottom-bar-icons/play.png"),
-  message: require("@/assets/images/icons/bottom-bar-icons/message.png"),
-  account: require("@/assets/images/icons/bottom-bar-icons/account.png"),
-  notification: require("@/assets/images/icons/bottom-bar-icons/notification.png"),
-};
-
-const TabIcon = ({ name, focused }: { name: IconName; focused: boolean }) => {
-  return (
-    <Image
-      source={icons[name]}
-      style={{ height: 24, width: 24, marginTop: 10, opacity: focused ? 1 : 0.6 }}
-    />
-  );
-};
-
-const TabLabel = ({ label, focused }: { label: string; focused: boolean }) => {
-  return (
-    <Text style={{ fontSize: 10, color: 'black', marginBottom: 4, opacity: focused ? 1 : 0.4 }}> 
-      {label}
-    </Text>
-  );
-};
 
 const PrimaryNavigation = () => {
   return (
