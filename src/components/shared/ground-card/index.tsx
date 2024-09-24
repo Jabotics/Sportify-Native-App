@@ -7,6 +7,7 @@ import {
   View,
 } from "react-native";
 import Icon from "react-native-vector-icons/AntDesign";
+import Heart from "../icons/@heart";
 
 const AmenitiesComponent = () => (
   <View className="flex flex-row items-center gap-1 mx-[2px]  h-6">
@@ -34,7 +35,7 @@ const GroundCard = ({ showShadow = false }: { showShadow?: boolean }) => {
             justifyContent: "center",
             alignItems: "center",
           }}
-          className="bg-stone-600/40 flex flex-row rounded px-3 py-1"
+          className="bg-stone-600/40 flex flex-row rounded px-3 h-10"
         >
           <Icon name="star" size={16} color={"white"} />
           <Text className="text-white text-base ml-[2px]">4.5</Text>
@@ -44,12 +45,15 @@ const GroundCard = ({ showShadow = false }: { showShadow?: boolean }) => {
             position: "absolute",
             top: 10,
             right: 10,
+            display: "flex",
+            flexDirection: "row",
             justifyContent: "center",
             alignItems: "center",
           }}
-          className="bg-stone-600/40 flex flex-row rounded p-1.5"
+          className="bg-stone-600/40 rounded w-10 h-10"
         >
-          <Icon name="hearto" size={16} color={"white"} />
+          {/* <Icon name="hearto" size={16} color={"white"} /> */}
+          <Heart />
         </View>
       </View>
 

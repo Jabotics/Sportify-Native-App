@@ -6,6 +6,7 @@ import StarIcon from "react-native-vector-icons/AntDesign";
 // CUSTOM IMPORTS
 import { topGroundStyles } from "@/styles/screens/home/top-ground-items";
 import COLORS from "@/styles/abstracts/colors";
+import Heart from "@/components/shared/icons/@heart";
 
 const TopGroundItems = () => (
   <React.Fragment>
@@ -22,8 +23,9 @@ const TopGroundItems = () => (
         <StarIcon name="star" size={15} color={COLORS.golden} />
         <Text style={{ color: COLORS.golden }}>4.7</Text>
       </View>
-      <View className="w-fit h-full px-1 flex flex-row items-center">
-        <StarIcon name="hearto" size={15} color={"white"} />
+      <View className="w-5 h-full flex flex-row items-center justify-center">
+        {/* <StarIcon name="hearto" size={15} color={"white"} /> */}
+        <Heart />
       </View>
     </View>
 
