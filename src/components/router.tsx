@@ -6,6 +6,7 @@ import {
   Signup,
   Login,
   Onboarding,
+  Account,
 } from '@/screens';
 import PrimaryNavigation from './@bottom-bar';
 import DynamicStatusBar from './shared/dynamic-statusbar';
@@ -21,6 +22,7 @@ const Router = () => {
       <Stack.Navigator>
         <Stack.Screen name="Onboarding" component={Onboarding} options={{ headerShown: false }} />
         <Stack.Screen name="Filters" component={GroundFilters} options={{ headerShown: false }} />
+        <Stack.Screen name="Account" component={Account} options={{ headerShown: false }} />
         <Stack.Screen name="Welcome" component={Signup} options={{ headerShown: false }} />
         <Stack.Screen name="Login" component={Login} options={{ headerShown: false }} />
         <Stack.Screen name="PrimaryNavigation" component={PrimaryNavigation} options={{ headerShown: false }} />
