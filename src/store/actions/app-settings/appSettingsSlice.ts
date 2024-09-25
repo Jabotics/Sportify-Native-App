@@ -8,6 +8,9 @@ const initialState: AppSettingsInitialState = {
   },
   header: {
     websiteNameStyle: "dark"
+  },
+  account: {
+    showMenu: false
   }
 };
 
@@ -32,8 +35,11 @@ export const AppSettingsSlice = createSlice({
     resetHeaderStyle: (state) => {
       state.header.websiteNameStyle = "dark";
     },
+    setShowMenu: (state, action: PayloadAction<boolean>) => {
+      state.account.showMenu = action.payload
+    }
   },
 });
 
-export const { setStatusBar, resetStatusBar, setHeaderStyle, resetHeaderStyle } = AppSettingsSlice.actions;
+export const { setStatusBar, resetStatusBar, setHeaderStyle, resetHeaderStyle, setShowMenu } = AppSettingsSlice.actions;
 export default AppSettingsSlice.reducer;

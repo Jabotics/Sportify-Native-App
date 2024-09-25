@@ -6,5 +6,8 @@ export interface AppSettingsInitialState {
   }
   header: {
     websiteNameStyle: "light" | "dark"
+  },
+  account: {
+    showMenu: boolean
   }
 }

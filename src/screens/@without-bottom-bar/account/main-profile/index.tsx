@@ -1,13 +1,18 @@
 import { View, Text, Image, Pressable } from "react-native";
-import React from "react";
+import React, { useState } from "react";
 import LottieView from "lottie-react-native";
 import { HamburgerIcon } from "@/assets/animated-icons";
 import { NavigationProp } from "@react-navigation/native";
+import { RootState, useAppDispatch, useAppSelector } from "@/store";
+import { setShowMenu } from "@/store/actions/app-settings/appSettingsSlice";
 
 const MainProfileComponent = ({ navigation }: { navigation: NavigationProp<any> }) => {
+  const dispatch = useAppDispatch();
+  const { showMenu } = useAppSelector((state: RootState) => state.appSettings.account)
+
   return (
     <View className="w-full min-h-screen flex flex-col gap-5 px-5">
-      <View className="w-full h-[20vh] flex items-center justify-center">
+      <View className={`w-full ${showMenu ? 'h-[15vh]' : 'h-[20vh]'} transition-all duration-300 flex items-center justify-center`}>
         <View className="h-[90%] aspect-square flex items-center justify-center relative">
           <View className="h-5/6 w-5/6 rounded-2xl overflow-hidden">
             <Image
@@ -15,12 +20,12 @@ const MainProfileComponent = ({ navigation }: { navigation: NavigationProp<any> 
               className="w-full h-full object-cover"
             />
           </View>
-          <View className="absolute bottom-0 right-0 h-10 w-10 bg-white rounded-full flex items-center justify-center overflow-hidden">
+          <Pressable onPress={() => navigation.navigate("EditAccount")} className={`absolute bottom-0 right-0 ${showMenu ? 'h-7 w-7' : 'h-10 w-10'} bg-white rounded-full flex items-center justify-center overflow-hidden`}>
             <Image
               source={require("@/assets/images/icons/editIcon.png")}
-              className="w-5 h-5"
+              className={`transition-all duration-300 ${showMenu ? "w-3 h-3" : "w-5 h-5"}`}
             />
-          </View>
+          </Pressable>
         </View>
       </View>
       
@@ -31,7 +36,7 @@ const MainProfileComponent = ({ navigation }: { navigation: NavigationProp<any> 
           <Text className="text-2xl text-primary">Armania!</Text>
         </View>
 
-        <Pressable onPress={() => navigation.navigate("")} className="h-12 aspect-square bg-gray-200 rounded-lg overflow-hidden flex items-center justify-center">
+        <Pressable onPress={() => dispatch(setShowMenu(true))} className="h-12 aspect-square bg-gray-200 rounded-lg overflow-hidden flex items-center justify-center">
           <LottieView style={{ flex: 1, width: 35 }} source={HamburgerIcon} loop autoPlay />
         </Pressable>
       </View>

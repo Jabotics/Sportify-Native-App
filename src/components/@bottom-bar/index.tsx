@@ -11,15 +11,6 @@ import TabLabel from "./tab-label";
 const Tab = createBottomTabNavigator();
 
 const PrimaryNavigation = () => {
-  const [isAccountModalVisible, setAccountModalVisible] = useState(false);
-
-  const openAccountModal = () => {
-    setAccountModalVisible(true);
-  };
-
-  const closeAccountModal = () => {
-    setAccountModalVisible(false);
-  };
 
   return (
     <>

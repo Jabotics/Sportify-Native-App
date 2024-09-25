@@ -103,5 +103,6 @@ export const Signup = loadComponent(() => import("./@without-bottom-bar/signup")
 export const Login = loadComponent(() => import("./@without-bottom-bar/login"),false,false,false,true,true);
 export const Onboarding = loadComponent(() => import("./@without-bottom-bar/onboarding"),false,false,false,true,true);
 export const Chat = loadComponent(() => import("./@without-bottom-bar/chat"),false,true,false,true,true);
-export const Account = loadComponent(() => import("./@without-bottom-bar/account"),false,false,false,true,true);
+export const Account = loadComponent(() => import("./@without-bottom-bar/account"),false,false,false,false,false);
+export const EditAccount = loadComponent(() => import("./@without-bottom-bar/edit-account"),false,false,false,false,false);
 export const BookGround = loadComponent(() => import("./@without-bottom-bar/book-ground"),false,true,false,false,false);
