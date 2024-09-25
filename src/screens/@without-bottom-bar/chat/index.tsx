@@ -1,18 +1,47 @@
-import React from 'react'
-import { Text, View } from 'react-native'
+import React, { useEffect, useRef, useState } from 'react';
+import { ScrollView, Text, View } from 'react-native';
+import { MostAskedQuestions, MessageInput, InitialChat, Messages } from './components';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
-import { NavigationProp } from '@react-navigation/native';
+const Chat = () => {
+  const [showMessages, setShowMessages] = useState(false);
+  const [message, setMessage] = useState('');
+  const messageArr = useRef<{ type: string, message: string }[]>([]);
 
-interface ChatProps {
-  navigation: NavigationProp<any>; // Adjust the type as needed
-}
+  const sendMessage = () => {
+    if (message.trim()) {
+      // console.log('message sent', message);
+      messageArr.current.push({
+        type: "ic",
+        message: message
+      })
+    }
+    setMessage('');
+    setShowMessages(true)
+  }
 
-const Chat: React.FC<ChatProps> = ({ navigation }) => {
+  const handleChange = (text: string) => {
+    setMessage(text)
+  }
+
+  // useEffect(()=> {
+  //   if(message.length != 0) {
+  //     setShowMessages(true);
+  //   }
+  // }, [message]);
+
   return (
-    <View>
-        <Text>Chat</Text>
-    </View>
-  )
+    <SafeAreaView className='flex-1'>
+      <ScrollView contentContainerStyle={{ flexGrow: 1 }} keyboardShouldPersistTaps='handled'>
+        {
+          showMessages ? <Messages messages={messageArr.current}/> : <InitialChat />
+        }
+      </ScrollView>
+      <View className='mx-4 mb-2'>
+        <MessageInput sendMessage={sendMessage} onChange={handleChange} message={message} />
+      </View>
+    </SafeAreaView>
+  );
 }
 
-export default Chat
+export default Chat;

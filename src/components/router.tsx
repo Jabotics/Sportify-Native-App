@@ -7,10 +7,13 @@ import {
   Login,
   Onboarding,
   Account,
+  Home,
+  Chat,
 } from '@/screens';
 import PrimaryNavigation from './@bottom-bar';
 import DynamicStatusBar from './shared/dynamic-statusbar';
 import GroundFilters from '@/screens/@with-bottom-bar/grounds/filters';
+import BookGround from '@/screens/@without-bottom-bar/book-ground/BookGround';
 
 const Stack = createNativeStackNavigator();
 
@@ -26,6 +29,8 @@ const Router = () => {
         <Stack.Screen name="Welcome" component={Signup} options={{ headerShown: false }} />
         <Stack.Screen name="Login" component={Login} options={{ headerShown: false }} />
         <Stack.Screen name="PrimaryNavigation" component={PrimaryNavigation} options={{ headerShown: false }} />
+        <Stack.Screen name="Chat" component={Chat} options={{ headerShown: false }} />
+        <Stack.Screen name="BookGround" component={BookGround} options={{ headerShown: false }} />
       </Stack.Navigator>
     </Fragment>
   );
