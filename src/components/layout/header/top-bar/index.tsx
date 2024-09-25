@@ -8,7 +8,6 @@ import Icon from "react-native-vector-icons/AntDesign";
 const Topbar = () => {
   const { header } = useAppSelector((state: RootState) => state.appSettings)
 
-  console.log(header.websiteNameStyle)
   return (
     <View style={headerStyles.topBarContainer}>
       <View>

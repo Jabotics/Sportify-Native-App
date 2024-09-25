@@ -10,7 +10,6 @@ const Heart = () => {
   const [liked, setLiked] = useState<boolean>(false);
   
   const handleLike = () => {
-    console.log('first')
     if (liked) {
       heartRef.current?.reset();
     } else {
