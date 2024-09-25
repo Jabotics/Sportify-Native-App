@@ -1,4 +1,4 @@
-import React from "react";
+import { useState } from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 
 // CUSTOM IMPORTS
@@ -11,8 +11,19 @@ import TabLabel from "./tab-label";
 const Tab = createBottomTabNavigator();
 
 const PrimaryNavigation = () => {
+  const [isAccountModalVisible, setAccountModalVisible] = useState(false);
+
+  const openAccountModal = () => {
+    setAccountModalVisible(true);
+  };
+
+  const closeAccountModal = () => {
+    setAccountModalVisible(false);
+  };
+
   return (
-    <Tab.Navigator
+    <>
+      <Tab.Navigator
       screenOptions={({ route }) => ({
         tabBarIcon: ({ focused }) => {
           let iconName: IconName;
@@ -40,7 +51,7 @@ const PrimaryNavigation = () => {
           return <TabLabel label={label} focused={focused} />;
         },
         tabBarShowLabel: true,
-        tabBarStyle: { height: 60, display: route.name === "Chat" ? 'none' : 'flex', }, 
+        tabBarStyle: { height: 60, display: route.name === "Chat" || route.name === "Account" ? 'none' : 'flex', }, 
         headerShown: false,
       })}
 
@@ -51,6 +62,7 @@ const PrimaryNavigation = () => {
       <Tab.Screen name="Notification" component={Notification} />
       <Tab.Screen name="Account" component={Account} />
     </Tab.Navigator>
+    </>
   );
 };
 

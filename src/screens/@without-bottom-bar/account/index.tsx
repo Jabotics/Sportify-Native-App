@@ -1,9 +1,8 @@
-import React from "react";
+import { useCallback } from "react";
 import useStatusBarStyle from "@/utils/hooks/useStatusBar";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { useEffect } from "react";
-import { NavigationProp } from "@react-navigation/native";
-import { View, Text, Pressable } from "react-native";
+import { NavigationProp, useFocusEffect } from "@react-navigation/native";
+import { View, ScrollView, Pressable, Text } from "react-native";
 import Animated, {
   Easing,
   useSharedValue,
@@ -12,24 +11,29 @@ import Animated, {
 } from "react-native-reanimated";
 import COLORS from "@/styles/abstracts/colors";
 import EntypoIcons from "react-native-vector-icons/Entypo";
+import MainProfileComponent from "./main-profile";
 
 const Account = ({ navigation }: { navigation: NavigationProp<any> }) => {
   useStatusBarStyle("dark");
-  const slideAnimation = useSharedValue(-300);
+  const slideAnimation = useSharedValue(50);
 
-  useEffect(() => {
-    slideAnimation.value = withTiming(0, {
-      duration: 300,
-      easing: Easing.inOut(Easing.ease),
-    });
-
-    return () => {
-      slideAnimation.value = withTiming(-300, {
+  useFocusEffect(
+    useCallback(() => {
+      // Animate slide in
+      slideAnimation.value = withTiming(0, {
         duration: 300,
         easing: Easing.inOut(Easing.ease),
       });
-    };
-  }, [slideAnimation]);
+
+      return () => {
+        // Animate slide out when leaving
+        slideAnimation.value = withTiming(50, {
+          duration: 300,
+          easing: Easing.inOut(Easing.ease),
+        });
+      };
+    }, [slideAnimation])
+  );
 
   const animatedStyle = useAnimatedStyle(() => {
     return {
@@ -47,30 +51,27 @@ const Account = ({ navigation }: { navigation: NavigationProp<any> }) => {
           width: "100%",
           height: "100%",
           backgroundColor: "white",
-          zIndex: 1000,
         },
         animatedStyle,
       ]}
     >
       <SafeAreaView>
-        <View className="flex flex-row justify-between items-center overflow-hidden mt-5 border-b border-gray-200 pb-5">
+        <View className="flex flex-row justify-between items-center overflow-hidden my-5 px-3">
           <View className="flex-1 flex flex-row gap-1 items-center justify-between mr-5 ">
             <Pressable onPress={() => navigation.goBack()} className="px-1">
               <EntypoIcons name="cross" size={25} color={COLORS.primary} />
             </Pressable>
-            <Text
-              style={{ color: COLORS.primary }}
-              className="text-xl mb-0.5 font-semibold"
-            >
-              My Account
-            </Text>
           </View>
 
-          <View
-            className="flex flex-row gap-2 items-center mr-2 w-[45%] justify-end"
-          >
-          </View>
+          <View className="flex flex-row gap-2 items-center mr-2 w-[45%] justify-end"></View>
         </View>
+
+        <ScrollView
+          contentContainerStyle={{ flexGrow: 1 }}
+          showsVerticalScrollIndicator={false}
+        >
+          <MainProfileComponent navigation={navigation} />
+        </ScrollView>
       </SafeAreaView>
     </Animated.View>
   );

@@ -15,7 +15,7 @@ import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import AntIcon from "react-native-vector-icons/AntDesign";
 
 const Chat = ({ navigation }: { navigation: NativeStackNavigationProp<any> }) => {
-  useStatusBarStyle("dark");
+  useStatusBarStyle("light");
 
   const [showMessages, setShowMessages] = useState(false);
   const [message, setMessage] = useState("");

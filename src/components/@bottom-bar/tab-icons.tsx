@@ -1,8 +1,7 @@
 import { IconName } from '@/types';
 import { Image } from 'react-native'
 
-
-const icons: Record<IconName, any> = {
+export const tabIcons: Record<IconName, any> = {
   home: require("@/assets/images/icons/bottom-bar-icons/home.png"),
   play: require("@/assets/images/icons/bottom-bar-icons/play.png"),
   message: require("@/assets/images/icons/bottom-bar-icons/message.png"),
@@ -13,7 +12,7 @@ const icons: Record<IconName, any> = {
 const TabIcon = ({ name, focused }: { name: IconName; focused: boolean }) => {
   return (
     <Image
-      source={icons[name]}
+      source={tabIcons[name]}
       style={{ height: 24, width: 24, marginTop: 10, opacity: focused ? 1 : 0.6 }}
     />
   );

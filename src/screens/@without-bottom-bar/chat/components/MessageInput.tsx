@@ -1,7 +1,6 @@
 import { View, TextInput, TouchableOpacity, Image } from "react-native";
 import React from "react";
 
-
 interface MessageInputProps {
   message: string;
   onChange: (text: string) => void;
@@ -20,8 +19,11 @@ const MessageInput: React.FC<MessageInputProps> = ({
         value={message}
         onChangeText={onChange}
       />
-      <TouchableOpacity onPress={sendMessage} className="w-8 h-8 flex items-center justify-center">
-        
+      <TouchableOpacity
+        onPress={sendMessage}
+        className="w-8 h-8 flex items-center justify-center overflow-hidden"
+      >
+        <Image source={require("@/assets/images/icons/sendIcon.png")} className="w-full h-full" />
       </TouchableOpacity>
     </View>
   );
