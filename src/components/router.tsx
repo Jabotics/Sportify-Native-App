@@ -9,6 +9,7 @@ import {
   Chat,
   // EditProfile,
 } from '@/screens';
+import BookGround from '@/screens/@without-bottom-bar/book-ground/BookGround';
 
 const Stack = createNativeStackNavigator();
 
@@ -21,6 +22,7 @@ const Router = () => {
       <Stack.Screen name="Login" component={Login} options={{ headerShown: false }} />
       <Stack.Screen name="Home" component={Home} options={{ headerShown: false }} />
       <Stack.Screen name="Chat" component={Chat} options={{ headerShown: false }} />
+      <Stack.Screen name="BookGround" component={BookGround} options={{ headerShown: false }} />
     </Stack.Navigator>
   );
 };
