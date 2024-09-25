@@ -1,9 +1,9 @@
 import React from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import { Image, Text, View } from "react-native";
 
 // CUSTOM IMPORTS
-import { Home, Grounds, Notification, Chat, Account } from "@/screens";
+import { Home, Grounds, Notification, Account, Chat } from "@/screens";
+
 import { IconName } from "@/types";
 import TabIcon from "./tab-icons";
 import TabLabel from "./tab-label";
@@ -40,9 +40,10 @@ const PrimaryNavigation = () => {
           return <TabLabel label={label} focused={focused} />;
         },
         tabBarShowLabel: true,
-        tabBarStyle: { height: 60 }, 
+        tabBarStyle: { height: 60, display: route.name === "Chat" ? 'none' : 'flex', }, 
         headerShown: false,
       })}
+
     >
       <Tab.Screen name="Home" component={Home} />
       <Tab.Screen name="Play" component={Grounds} />

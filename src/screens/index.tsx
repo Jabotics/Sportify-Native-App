@@ -102,6 +102,6 @@ export const Notification = loadComponent(() => import("./@with-bottom-bar/notif
 export const Signup = loadComponent(() => import("./@without-bottom-bar/signup"),false,false,false,true,true);
 export const Login = loadComponent(() => import("./@without-bottom-bar/login"),false,false,false,true,true);
 export const Onboarding = loadComponent(() => import("./@without-bottom-bar/onboarding"),false,false,false,true,true);
-export const Chat = loadComponent(() => import("./@without-bottom-bar/chat"),false,false,false,true,true);
+export const Chat = loadComponent(() => import("./@without-bottom-bar/chat"),false,true,false,true,true);
 export const Account = loadComponent(() => import("./@without-bottom-bar/account"),false,false,false,true,true);
 export const BookGround = loadComponent(() => import("./@without-bottom-bar/book-ground"),false,true,false,false,false);

@@ -3,7 +3,7 @@ import COLORS from "@/styles/abstracts/colors";
 import { headerStyles } from "@/styles/layout/header";
 import React from "react";
 import { Text, TouchableOpacity, View } from "react-native";
-import Icon from "react-native-vector-icons/AntDesign";
+import AntIcon from "react-native-vector-icons/AntDesign";
 
 const Topbar = () => {
   const { header } = useAppSelector((state: RootState) => state.appSettings)
@@ -25,7 +25,7 @@ const Topbar = () => {
           <Text style={headerStyles.topBarSignInText}>Sign up</Text>
         </TouchableOpacity>
         <View style={headerStyles.topBarIconContainer}>
-          <Icon name="question" size={25} color={COLORS.white} />
+          <AntIcon name="question" size={25} color={COLORS.white} />
         </View>
       </View>
     </View>

@@ -39,7 +39,6 @@ const Router = () => {
         {/* ======================== */}
 
         <Stack.Screen name="Login" component={Login} options={{ headerShown: false }} />
-        <Stack.Screen name="Chat" component={Chat} options={{ headerShown: false }} />
       </Stack.Navigator>
     </Fragment>
   );
