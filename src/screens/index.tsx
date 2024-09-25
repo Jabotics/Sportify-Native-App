@@ -26,6 +26,7 @@ const loadComponent = (
   importFunc: () => Promise<{ default: FC<any> }>,
   toShowHeader: boolean = true,
   toShowBackground: boolean = false,
+  toShowBackgroundImg: boolean = false,
   topBar: boolean = true,
   searchBar: boolean = true
 ): FC => {
@@ -74,7 +75,7 @@ const loadComponent = (
               <ErrorFallback />
             ) : (
               <Fragment>
-                {toShowBackground ? (
+                {toShowBackgroundImg ? (
                   <Image
                     source={require("@/assets/images/patterns/pattern3.png")}
                     className="absolute -z-0"
@@ -93,61 +94,14 @@ const loadComponent = (
 };
 
 // Lazy-load screens with bottom bar
-export const Home = loadComponent(
-  () => import("./@with-bottom-bar/home"),
-  true,
-  true,
-  true,
-  true
-);
-export const Grounds = loadComponent(
-  () => import("./@with-bottom-bar/grounds"),
-  true,
-  false,
-  false,
-  true
-);
-export const Notification = loadComponent(
-  () => import("./@with-bottom-bar/notification"),
-  true,
-  false,
-  true,
-  false
-);
+export const Home = loadComponent(() => import("./@with-bottom-bar/home"),true,true,true,true,true);
+export const Grounds = loadComponent(() => import("./@with-bottom-bar/grounds"),true,false,false,false,true);
+export const Notification = loadComponent(() => import("./@with-bottom-bar/notification"),true,false,false,true,false);
 
 // Lazy-load screens without bottom bar
-export const Signup = loadComponent(
-  () => import("./@without-bottom-bar/signup"),
-  false,
-  false,
-  true,
-  true
-);
-export const Login = loadComponent(
-  () => import("./@without-bottom-bar/login"),
-  false,
-  false,
-  true,
-  true
-);
-export const Onboarding = loadComponent(
-  () => import("./@without-bottom-bar/onboarding"),
-  false,
-  false,
-  true,
-  true
-);
-export const Chat = loadComponent(
-  () => import("./@without-bottom-bar/chat"),
-  false,
-  false,
-  true,
-  true
-);
-export const Account = loadComponent(
-  () => import("./@without-bottom-bar/account"),
-  false,
-  false,
-  true,
-  true
-);
+export const Signup = loadComponent(() => import("./@without-bottom-bar/signup"),false,false,false,true,true);
+export const Login = loadComponent(() => import("./@without-bottom-bar/login"),false,false,false,true,true);
+export const Onboarding = loadComponent(() => import("./@without-bottom-bar/onboarding"),false,false,false,true,true);
+export const Chat = loadComponent(() => import("./@without-bottom-bar/chat"),false,false,false,true,true);
+export const Account = loadComponent(() => import("./@without-bottom-bar/account"),false,false,false,true,true);
+export const BookGround = loadComponent(() => import("./@without-bottom-bar/book-ground"),false,true,false,false,false);

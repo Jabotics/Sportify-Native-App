@@ -13,7 +13,7 @@ const OnboardingScreen = ({ navigation }: { navigation: NavigationProp<any> }) =
   return (
     <Onboarding
       onSkip={() => navigation.navigate("BookGround")}
-      onDone={() => navigation.navigate("Home")}
+      onDone={() => navigation.navigate("PrimaryNavigation")}
       nextLabel={<NextButton />}
       bottomBarHighlight={false}
       bottomBarHeight={90}

@@ -60,7 +60,7 @@ const GroundFilters = ({ navigation }: { navigation: NavigationProp<any> }) => {
             </Pressable>
             <Text
               style={{ color: COLORS.primary }}
-              className="text-xl mb-0.5 font-semibold"
+              className="text-xl mb-0.5 font-medium"
             >
               Filter Ground
             </Text>
