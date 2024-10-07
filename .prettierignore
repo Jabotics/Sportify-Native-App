@@ -1,0 +1,16 @@
+# Ignore all files by default
+*
+
+
+# Unignore the components directory
+!src/components/
+!src/screens
+!src/utils
+!src/types
+!src/styles
+!src/services
+!src/store
+
+src/screens/index.tsx
+src/components/router.tsx
+src/store/index.ts

@@ -1,0 +1,5 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+# Run Prettier on the components directory, ignoring specified files
+npx prettier --write 'src/components/**/*' --ignore-path .prettierignore && git add .

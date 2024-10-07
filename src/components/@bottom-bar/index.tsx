@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { Fragment, useState } from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 
 // CUSTOM IMPORTS
@@ -13,7 +13,7 @@ const Tab = createBottomTabNavigator();
 const PrimaryNavigation = () => {
 
   return (
-    <>
+    <Fragment>
       <Tab.Navigator
       screenOptions={({ route }) => ({
         tabBarIcon: ({ focused }) => {
@@ -53,7 +53,7 @@ const PrimaryNavigation = () => {
       <Tab.Screen name="Notification" component={Notification} />
       <Tab.Screen name="Account" component={Account} />
     </Tab.Navigator>
-    </>
+    </Fragment>
   );
 };
 
