@@ -7,12 +7,7 @@ import COLORS from "@/styles/abstracts/colors";
 
 export default function Welcome({ navigation }: { navigation: NavigationProp<any> }) {
   return (
-    <LinearGradient
-      style={{
-        flex: 1,
-      }}
-      colors={[COLORS.secondary, COLORS.primary]}
-    >
+    <LinearGradient style={{ flex: 1 }} colors={[COLORS.secondary, COLORS.primary]} >
       {/* <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
         <View
           style={{
