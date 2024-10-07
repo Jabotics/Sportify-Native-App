@@ -106,3 +106,4 @@ export const Chat = loadComponent(() => import("./@without-bottom-bar/chat"),fal
 export const Account = loadComponent(() => import("./@without-bottom-bar/account"),false,false,false,false,false);
 export const EditAccount = loadComponent(() => import("./@without-bottom-bar/edit-account"),false,false,false,false,false);
 export const BookGround = loadComponent(() => import("./@without-bottom-bar/book-ground"),false,true,false,false,false);
+export const Details = loadComponent(() => import("./@without-bottom-bar/details"),true,false,false,false,true);

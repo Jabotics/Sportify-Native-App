@@ -2,12 +2,14 @@ import React from "react";
 import {
   Image,
   ImageBackground,
+  Pressable,
   Text,
   TouchableOpacity,
   View,
 } from "react-native";
 import Icon from "react-native-vector-icons/AntDesign";
 import Heart from "../icons/@heart";
+import { useTypedNavigation } from "@/utils/hooks/useNavigation";
 
 const AmenitiesComponent = () => (
   <View className="flex flex-row items-center gap-1 mx-[2px]  h-6">
@@ -19,14 +21,30 @@ const AmenitiesComponent = () => (
 const arr = [, 1, 2, 3, 4, 5];
 
 const GroundCard = ({ showShadow = false }: { showShadow?: boolean }) => {
+  const navigation = useTypedNavigation();
+
+  const handleNavigateToBookGround = () => {
+    navigation.navigate("BookGround");
+  };
+
+  const handleNavigateToGroundDetails = () => {
+    navigation.navigate("Details", { groundId: "" });
+  };
+
   return (
-    <View className={`w-full h-[95%] bg-white rounded-md overflow-hidden border border-gray-300/40 ${showShadow ? 'shadow-lg shadow-black' : ''} relative flex flex-col items-center justify-center ml-2`}>
+    <View
+      className={`w-full h-[95%] bg-white rounded-md overflow-hidden border border-gray-300/40 ${
+        showShadow ? "shadow-lg shadow-black" : ""
+      } relative flex flex-col items-center justify-center ml-2`}
+    >
       <View className="flex-1 w-full relative">
-        <Image
-          source={require("@/assets/images/temp/ground.png")}
-          className="w-[100%] h-[100%]"
-          style={{ resizeMode: "cover" }}
-        />
+        <Pressable onPress={handleNavigateToGroundDetails}>
+          <Image
+            source={require("@/assets/images/temp/ground.png")}
+            className="w-[100%] h-[100%]"
+            style={{ resizeMode: "cover" }}
+          />
+        </Pressable>
         <View
           style={{
             position: "absolute",
@@ -59,30 +77,36 @@ const GroundCard = ({ showShadow = false }: { showShadow?: boolean }) => {
 
       <View className="h-[50%] w-full relative">
         <ImageBackground
-          source={require('@/assets/images/patterns/pattern1.png')} 
+          source={require("@/assets/images/patterns/pattern1.png")}
           style={{
             flex: 1,
-            width: '100%',
-            height: '100%',
+            width: "100%",
+            height: "100%",
           }}
           resizeMode="repeat"
         >
           <View className="bg-teal-500 w-8 p-[2px] ml-2 rounded-md mt-2">
             <Text className="text-white text-[10px] text-center">New</Text>
           </View>
-          <View className="ml-2 w-[75%]">
+          <Pressable
+            onPress={handleNavigateToGroundDetails}
+            className="ml-2 w-[75%]"
+          >
             <Text
               className="text-primary underline font-semibold text-base"
               numberOfLines={2}
             >
               Riverside Avani Mall Ground
             </Text>
-          </View>
+          </Pressable>
           <View className="mx-[2px] flex flex-row flex-wrap mt-1 items-center justify-start">
             {arr.map((item) => (
               <AmenitiesComponent key={item} />
             ))}
-            <TouchableOpacity className="mx-2 flex flex-row justify-center items-end h-5">
+            <TouchableOpacity
+              className="mx-2 flex flex-row justify-center items-end h-5"
+              onPress={handleNavigateToGroundDetails}
+            >
               <Text className="text-xs text-gray-400 underline">
                 Read more...
               </Text>
@@ -97,7 +121,10 @@ const GroundCard = ({ showShadow = false }: { showShadow?: boolean }) => {
               <Text className="text-xs line-through text-gray-500">₹2500</Text>
             </View>
             {/* <View> */}
-            <TouchableOpacity className="bg-primary rounded-md px-7 py-1">
+            <TouchableOpacity
+              className="bg-primary rounded-md px-7 py-1"
+              onPress={handleNavigateToBookGround}
+            >
               <Text className="text-white text-sm">Book</Text>
             </TouchableOpacity>
             {/* </View> */}

@@ -9,7 +9,7 @@ import {
   Signup,
   Login,
   Onboarding,
-  Account,
+  Details,
   BookGround,
   EditAccount,
 } from '@/screens';
@@ -67,9 +67,10 @@ const Router = () => {
             cardStyleInterpolator: CardStyleInterpolators.forModalPresentationIOS,
           }} 
           
-          />
+        />
         <Stack.Screen name="Filters" component={GroundFilters} options={{ headerShown: false }} />
         <Stack.Screen name="BookGround" component={BookGround} options={{ headerShown: false }} />
+        <Stack.Screen name="Details" component={Details} options={{ headerShown: false }} />
         {/* ======================== */}
 
         <Stack.Screen name="Login" component={Login} options={{ headerShown: false }} />
