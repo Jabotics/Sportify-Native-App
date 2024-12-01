@@ -3,16 +3,17 @@ module.exports = function (api) {
   return {
     presets: ["babel-preset-expo"],
     plugins: [
-      "nativewind/babel",
+      "nativewind/babel", // For NativeWind utility classes
       [
         "module-resolver",
         {
           root: ["./src"],
           alias: {
-            "@": "./src"
-          }
-        }
-      ]
-    ]
+            "@": "./src",
+            "@constants": "./src/services/@constants.ts",
+          },
+        },
+      ],
+    ],
   };
 };

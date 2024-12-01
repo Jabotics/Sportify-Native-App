@@ -1,57 +1,51 @@
-import React from "react";
+import { Fragment, useState } from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import { Image, Text, View } from "react-native";
 
 // CUSTOM IMPORTS
-import { Home, Grounds, Notification, Chat, Account } from "@/screens";
+import { Home, Grounds, Notification, Account, Chat } from "@/screens";
+
+import { IconName } from "@/types";
+import TabIcon from "./tab-icons";
+import TabLabel from "./tab-label";
 
 const Tab = createBottomTabNavigator();
 
-type IconName = "home" | "play" | "message" | "notification" | "account";
+const PrimaryNavigation = () => {
 
-const icons: Record<IconName, any> = {
-  home: require("@/assets/images/icons/bottom-bar-icons/home.png"),
-  play: require("@/assets/images/icons/bottom-bar-icons/play.png"),
-  message: require("@/assets/images/icons/bottom-bar-icons/message.png"),
-  account: require("@/assets/images/icons/bottom-bar-icons/account.png"),
-  notification: require("@/assets/images/icons/bottom-bar-icons/notification.png"),
-};
-
-const TabIcon = ({ name }: { name: IconName }) => {
-  let w = 6;
-  let h = 6;
-  // (name === 'message' || name === 'notification') && (w = 7, h = 7)
-  return <Image source={icons[name]} className={`w-${w} h-${h}`} />;
-};
-
-const Main = () => {
   return (
-    <Tab.Navigator
+    <Fragment>
+      <Tab.Navigator
       screenOptions={({ route }) => ({
-        tabBarIcon: ({ focused, color, size }) => {
+        tabBarIcon: ({ focused }) => {
           let iconName: IconName;
 
           switch (route.name) {
             case "Home":
-              iconName = focused ? "home" : "home";
+              iconName = "home";
               break;
             case "Play":
-              iconName = focused ? "play" : "play";
+              iconName = "play";
               break;
             case "Chat":
-              iconName = focused ? "message" : "message";
+              iconName = "message";
               break;
             case "Notification":
-              iconName = focused ? "notification" : "notification";
+              iconName = "notification";
               break;
             default:
-              iconName = focused ? "account" : "account";
+              iconName = "account";
           }
-          return <TabIcon name={iconName} />;
+          return <TabIcon name={iconName} focused={focused} />;
         },
-        tabBarShowLabel: false,
+        tabBarLabel: ({ focused }) => {
+          const label = route.name; 
+          return <TabLabel label={label} focused={focused} />;
+        },
+        tabBarShowLabel: true,
+        tabBarStyle: { height: 60, display: route.name === "Chat" || route.name === "Account" ? 'none' : 'flex', }, 
         headerShown: false,
       })}
+
     >
       <Tab.Screen name="Home" component={Home} />
       <Tab.Screen name="Play" component={Grounds} />
@@ -59,7 +53,8 @@ const Main = () => {
       <Tab.Screen name="Notification" component={Notification} />
       <Tab.Screen name="Account" component={Account} />
     </Tab.Navigator>
+    </Fragment>
   );
 };
 
-export default Main;
+export default PrimaryNavigation;

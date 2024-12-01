@@ -1,82 +1,158 @@
-import React from 'react'
-import { Image, ScrollView, Text, Touchable, TouchableOpacity, View } from 'react-native'
-import Icon from 'react-native-vector-icons/Feather';
-import AntIcon from 'react-native-vector-icons/AntDesign';
+import { useCallback } from "react";
+import { SafeAreaView } from "react-native-safe-area-context";
+import { NavigationProp, useFocusEffect } from "@react-navigation/native";
+import { View, ScrollView, Pressable } from "react-native";
+import Animated, {
+  Easing,
+  useSharedValue,
+  useAnimatedStyle,
+  withTiming,
+  withSpring,
+} from "react-native-reanimated";
+import { PanGestureHandler, PanGestureHandlerGestureEvent } from "react-native-gesture-handler";
+import EntypoIcons from "react-native-vector-icons/Entypo";
 
-const Menus = ({ iconName, menuName }: { iconName: string, menuName: string }) => (
-  <View className={`border-b p-3 ${menuName == 'Bookings' && 'border-t'} border-gray-300`}>
-    <TouchableOpacity className='flex flex-row items-center'>
-      <AntIcon name={iconName} size={25} />
-      <Text className='ml-2 text-lg font-medium'>{menuName}</Text>
-    </TouchableOpacity>
-  </View>
-)
+// CUSTOM IMPORTS
+import MainProfileComponent from "./main-profile";
 
-const menus = [
-  { icon: 'calendar', menu: 'Bookings' },
-  { icon: 'heart', menu: 'Wishlist' },
-  { icon: 'appstore-o', menu: 'My Activity' },
-  { icon: 'copy1', menu: 'Terms, Policies and Licenses' },
-  { icon: 'question', menu: 'Browse FAQs' },
-]
+import { setShowMenu } from "@/store/actions/app-settings/appSettingsSlice";
+import { RootState, useAppDispatch, useAppSelector } from "@/store";
 
+import useStatusBarStyle from "@/utils/hooks/useStatusBar";
 
-//Avatar Component
-interface AvatarImageProps {
-  navigation: any;
-}
-export const AvatarImage: React.FC<AvatarImageProps> = ({ navigation }) => (
-  <View className='relative'>
-    <View style={{ width: 92, height: 92, overflow: 'hidden', borderRadius: 8, position: 'relative', borderBottomEndRadius: -100 }} className='border-gray-300 border'>
-      <Image source={require('@/assets/images/temp/male.jpg')} style={{ resizeMode: 'cover', width: '100%', height: '100%' }} />
-    </View>
-    <TouchableOpacity style={{
-      position: 'absolute',
-      bottom: '-60%',
-      right: '-3%',
-      transform: [{ translateY: -50 }],
-      backgroundColor: 'white',
-      borderRadius: 50,
-      padding: 5,
-      zIndex: 1, // For iOS and Android
-      elevation: 5, // For Android                    
-    }}
-      onPress={() => navigation.navigate('EditProfile')}
-    >
-      <Icon name='edit' size={15} color={'black'} />
-    </TouchableOpacity>
-  </View>
-)
+import COLORS from "@/styles/abstracts/colors";
+import AccountMenu from "./account-menu";
 
-const Account = ({ navigation }: { navigation: any }) => {
+const Account = ({ navigation }: { navigation: NavigationProp<any> }) => {
+  useStatusBarStyle("dark");
+  const slideAnimation = useSharedValue(10);
+  const dispatch = useAppDispatch();
+  const drawerPosition = useSharedValue(0);
+  const overlayOpacity = useSharedValue(0);
+
+  const { showMenu } = useAppSelector(
+    (state: RootState) => state.appSettings.account
+  );
+
+  useFocusEffect(
+    useCallback(() => {
+      slideAnimation.value = withTiming(0, {
+        duration: 300,
+        easing: Easing.inOut(Easing.ease),
+      });
+
+      return () => {
+        slideAnimation.value = withTiming(10, {
+          duration: 300,
+          easing: Easing.inOut(Easing.ease),
+        });
+      };
+    }, [slideAnimation])
+  );
+
+  useFocusEffect(
+    useCallback(() => {
+      drawerPosition.value = withTiming(showMenu ? 0 : 75, { duration: 300 });
+      overlayOpacity.value = withTiming(showMenu ? 0.5 : 0, { duration: 300 });
+    }, [showMenu])
+  );
+
+  const animatedStyle = useAnimatedStyle(() => {
+    return {
+      transform: [{ translateY: slideAnimation.value }],
+    };
+  });
+
+  const drawerAnimatedStyle = useAnimatedStyle(() => {
+    return {
+      transform: [{ translateY: drawerPosition.value }],
+    };
+  });
+
+  const overlayAnimatedStyle = useAnimatedStyle(() => {
+    return {
+      opacity: overlayOpacity.value,
+    };
+  });
+
+  const onGestureEvent = (event: PanGestureHandlerGestureEvent) => {
+    drawerPosition.value = Math.max(event.nativeEvent.translationY + 75, 0);
+  };
+
+  const onGestureEnd = (event: PanGestureHandlerGestureEvent) => {
+    const { translationY } = event.nativeEvent;
+    if (translationY > 135) {
+      dispatch(setShowMenu(false));
+    } else {
+      drawerPosition.value = withSpring(0, {
+        damping: 50,
+        stiffness: 100,
+      });
+    }
+  };
+
   return (
-    <>
-      <View style={{ flex: 1 }} className='bg-white'>
-        {/* Top */}
-        <View className='flex-1 justify-center items-center'>
-          <AvatarImage navigation={navigation} />
-        </View>
+    <Animated.View
+      style={[
+        {
+          position: "absolute",
+          top: 0,
+          left: 0,
+          width: "100%",
+          height: "100%",
+          backgroundColor: "white",
+        },
+        animatedStyle,
+      ]}
+    >
+      {showMenu ? (
+        <Animated.View
+          className="absolute top-0 left-0 right-0 bottom-0 bg-black/40 z-40"
+          style={[overlayAnimatedStyle]}
+        >
+          <Pressable
+            className="absolute top-0 left-0 right-0 bottom-0"
+            onPress={() => dispatch(setShowMenu(false))}
+          />
+        </Animated.View>
+      ) : null}
 
-        {/* Middle */}
-        <View className='p-5 rounded-t-2xl mt-10 border-t border-l border-r border-gray-300' style={{ flex: 2 }}>
-          <View className='mt-10'>
-            {
-              menus.map((menu, index) => (
-                <Menus iconName={menu.icon} menuName={menu.menu} key={index} />
-              ))
-            }
+      {showMenu && (
+        <PanGestureHandler
+          onGestureEvent={onGestureEvent}
+          onEnded={(event) =>
+            onGestureEnd(event as unknown as PanGestureHandlerGestureEvent)
+          }
+        >
+          <Animated.View
+            className="absolute left-0 right-0 bottom-0 bg-white z-50 rounded-xl"
+            style={[{ height: "70%" }, drawerAnimatedStyle]}
+          >
+            <AccountMenu />
+          </Animated.View>
+        </PanGestureHandler>
+      )}
+
+      <SafeAreaView>
+        <View className="flex flex-row justify-between items-center overflow-hidden my-5 px-3">
+          <View className="flex-1 flex flex-row gap-1 items-center justify-between mr-5 ">
+            <Pressable onPress={() => navigation.goBack()} className="px-1">
+              <EntypoIcons name="cross" size={25} color={COLORS.primary} />
+            </Pressable>
           </View>
+
+          <View className="flex flex-row gap-2 items-center mr-2 w-[45%] justify-end"></View>
         </View>
 
-        {/* Bottom */}
-        <View className='flex-1 flex justify-end items-center' style={{ flex: 1 }}>
-          <TouchableOpacity className='mb-10 bg-primary rounded-md p-2 px-4'>
-            <Text className='text-white italic text-center font-medium'>Logout</Text>
-          </TouchableOpacity>
-        </View>
-      </View>
-    </>
-  )
-}
+        <ScrollView
+          contentContainerStyle={{ flexGrow: 1 }}
+          showsVerticalScrollIndicator={false}
+        >
+          <MainProfileComponent navigation={navigation} />
+        </ScrollView>
+      </SafeAreaView>
+    </Animated.View>
+  );
+};
 
-export default Account
+export default Account;

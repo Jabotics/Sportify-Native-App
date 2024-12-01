@@ -4,7 +4,11 @@
     "strict": true,
     "baseUrl": ".",
     "paths": {
-      "@/*": ["src/*"] 
-    }
+      "@/*": ["src/*"],
+      "@constants": ["src/services/@constants.ts"],
+    },
+    "module": "esnext",
+    "target": "esnext",
+    "jsx": "react-native"
   }
 }

@@ -1,18 +1,14 @@
 import { View, Text, Pressable } from "react-native";
 import React from "react";
 import { LinearGradient } from "expo-linear-gradient";
-import COLORS from "@/utils/constants/colors";
 import Button from "@/components/shared/button";
+import { NavigationProp } from "@react-navigation/native";
+import COLORS from "@/styles/abstracts/colors";
 
-export default function Welcome({ navigation }: { navigation: any }) {
+export default function Welcome({ navigation }: { navigation: NavigationProp<any> }) {
   return (
-    <LinearGradient
-      style={{
-        flex: 1,
-      }}
-      colors={[COLORS.secondary, COLORS.primary]}
-    >
-      <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
+    <LinearGradient style={{ flex: 1 }} colors={[COLORS.secondary, COLORS.primary]} >
+      {/* <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
         <View
           style={{
             paddingHorizontal: 22,
@@ -98,7 +94,7 @@ export default function Welcome({ navigation }: { navigation: any }) {
             </Pressable>
           </View>
         </View>
-      </View>
+      </View> */}
     </LinearGradient>
   );
 }
